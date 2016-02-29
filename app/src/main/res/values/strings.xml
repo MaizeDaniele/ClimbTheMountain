@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ClimbTheMountain</string>
+    <string name="button_login_text">log in</string>
+    <string name="button_create_text">crea profilo</string>
+
 </resources>
