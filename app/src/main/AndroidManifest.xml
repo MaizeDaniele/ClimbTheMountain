@@ -12,7 +12,14 @@
         <activity android:name=".RegisterSessionData" />
         <activity android:name=".RegisterSessionExam" />
         <activity android:name=".RegisterSessionSummary" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login">
+            <intent-filter>
+                <!-- used to set launcher activity -->
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

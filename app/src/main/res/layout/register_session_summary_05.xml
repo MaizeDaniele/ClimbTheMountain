@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,143 +10,136 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/tbSessionSum_Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolBar"
             android:background="@color/colorPrimaryDark"
             android:paddingBottom="20dp" />
 
 
         <TextView
+            android:id="@+id/tvSessionSum_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_below="@+id/tbSessionSum_Toolbar"
             android:layout_marginTop="8dp"
-            android:id="@+id/tvName"
-            android:layout_below="@+id/toolBar"
-            android:text="Name : "
-            android:textSize="18dp" />
+            android:padding="10dp"
+            android:text="@string/name_display"
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/tvSessionSum_nameShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:id="@+id/tvNameShow"
-            android:layout_toRightOf="@+id/tvName"
+            android:layout_below="@+id/tbSessionSum_Toolbar"
             android:layout_marginTop="8dp"
-            android:layout_below="@+id/toolBar"
-            android:text="Pippo"
-            android:textSize="18dp" />
+            android:layout_toEndOf="@+id/tvSessionSum_name"
+            android:padding="10dp" />
 
         <Button
+            android:id="@+id/btSessionSum_editUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tbSessionSum_Toolbar"
+            android:layout_marginEnd="4dp"
             android:layout_marginTop="8dp"
-            android:layout_marginRight="4dp"
             android:padding="10dp"
-            android:text="Modify"
-            android:textAlignment="gravity"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/toolBar" />
+            android:text="@string/button_mod"
+            android:textAlignment="gravity" />
 
 
         <TextView
+            android:id="@+id/tvSessionSum_surname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_below="@+id/tvSessionSum_name"
 
-            android:id="@+id/tvSurname"
-            android:layout_below="@+id/tvName"
-            android:text="Surname : "
-            android:textSize="18dp" />
+            android:padding="10dp"
+            android:text="@string/surname_display"
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/tvSessionSum_surnameShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_toRightOf="@+id/tvSurname"
-
-            android:layout_below="@+id/tvName"
-            android:text="Pippo"
-            android:textSize="18dp" />
+            android:layout_below="@+id/tvSessionSum_name"
+            android:layout_toEndOf="@+id/tvSessionSum_surname"
+            android:padding="10dp" />
 
         <TextView
+            android:id="@+id/tvSessionSum_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSessionSum_surname"
             android:padding="10dp"
-
-            android:id="@+id/tvUsername"
-            android:layout_below="@+id/tvSurname"
-            android:text="Username : "
-            android:textSize="18dp" />
+            android:text="@string/username_display"
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/tvSessionSum_usernameShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_toRightOf="@+id/tvSurname"
-
-            android:layout_below="@+id/tvSurname"
-            android:text="Pippo"
-            android:textSize="18dp" />
+            android:layout_below="@+id/tvSessionSum_surname"
+            android:layout_toEndOf="@+id/tvSessionSum_surname"
+            android:padding="10dp" />
 
 
         <TextView
+            android:id="@+id/tvSessionSum_sessionShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:layout_below="@+id/tvSessionSum_username"
             android:layout_marginTop="15dp"
-            android:id="@+id/tvSession"
-            android:layout_below="@+id/tvUsername"
-            android:text="Session Starts : "
-            android:textSize="18dp" />
+            android:padding="10dp"
+            android:text="@string/session_display"
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/tvSessionSum_Start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_toRightOf="@+id/tvSession"
+            android:layout_below="@+id/tvSessionSum_username"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/tvUsername"
-            android:text="Pippo"
-            android:textSize="18dp" />
+            android:layout_toEndOf="@+id/tvSessionSum_sessionShow"
+            android:padding="10dp" />
 
         <Button
+            android:id="@+id/btSessionSum_editSession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tvSessionSum_username"
+            android:layout_marginEnd="4dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="4dp"
             android:padding="10dp"
-            android:text="Modify"
-            android:textAlignment="gravity"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/tvUsername" />
+            android:text="@string/button_mod"
+            android:textAlignment="gravity" />
 
 
         <TextView
+            android:id="@+id/tvSessionSum_hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSessionSum_sessionShow"
             android:padding="10dp"
-
-            android:id="@+id/tvHours"
-            android:layout_below="@+id/tvSession"
-            android:text="Surname : "
-            android:textSize="18dp" />
+            android:text="@string/hours_display"
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/tvSessionSum_hoursShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_toRightOf="@+id/tvHours"
-
-            android:layout_below="@+id/tvSession"
-            android:text="Pippo"
-            android:textSize="18dp" />
+            android:layout_below="@+id/tvSessionSum_sessionShow"
+            android:layout_toEndOf="@+id/tvSessionSum_hours"
+            android:padding="10dp" />
 
         <ListView
+            android:id="@+id/lvSessionSum_List"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSessionSum_hours"
+            android:layout_marginTop="20dp">
 
         </ListView>
 

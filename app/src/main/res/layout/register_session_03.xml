@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/tbSession_Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
@@ -18,52 +17,55 @@
 
 
         <TextView
+            android:id="@+id/tvSession_start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Session Start"
-            android:textSize="16dp" />
+            android:text="@string/session_start"
+            android:textSize="16sp" />
 
         <DatePicker
+            android:id="@+id/dpSession_Date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:datePickerMode="spinner"
             android:calendarViewShown="false"
+            android:datePickerMode="spinner"
             android:spinnersShown="true">
 
         </DatePicker>
 
         <TextView
+            android:id="@+id/tvSession_hours"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="Weekly Hours Study"
-            android:textSize="16dp" />
+            android:text="@string/week_hours"
+            android:textSize="16sp" />
 
         <!-- calendar Button-->
 
 
         <TextView
+            android:id="@+id/tvSession_exams"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="Exams"
-            android:textSize="16dp" />
+            android:text="@string/exams"
+            android:textSize="16sp" />
 
         <ListView
+            android:id="@+id/lvSession_List"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
 
         </ListView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="+"
-            android:textSize="20dp" />
+        <!-- button to add Exams -->
 
     </LinearLayout>
 

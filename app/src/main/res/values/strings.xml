@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">ClimbTheMountain</string>
+    <string name="username">Username</string>
+    <string name="password_low">password</string>
+    <string name="log_button">LOGIN</string>
+    <string name="new_user">New User</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="password_Up">Password</string>
+    <string name="repeat_pass">Repeat Password</string>
+    <string name="session_start">Session Start</string>
+    <string name="week_hours">Weekly Studies' Hours</string>
+    <string name="exams">Exams</string>
+    <string name="exams_name">Exam's Name</string>
+    <string name="cfu">CFU</string>
+    <string name="exam_dead">Exam's Deadline</string>
+    <string name="exam_color">Exam Associate Color</string>
+    <string name="name_display"> Name :</string>
+    <string name="surname_display">Surname :</string>
+    <string name="username_display">Username :</string>
+    <string name="session_display">Session starts : </string>
+    <string name="hours_display">Weekly Hours :</string>
+    <string name="button_mod">Modify</string>
+    
 </resources>

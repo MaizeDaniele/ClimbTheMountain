@@ -1,61 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+
+    <!-- hide actionBar -->
+    <!--
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:paddingBottom="20dp" />
+        -->
 
     <!--Suggest to insert app's image -->
 
     <ImageView
+        android:id="@+id/ivLogin_Image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:paddingTop="10dp" />
+        android:paddingTop="10dp"
+        android:src="@mipmap/ic_launcher" />
 
     <EditText
+        android:id="@+id/etLogin_username"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
-        android:padding="10dp"
+        android:layout_marginRight="5dp"
         android:layout_marginTop="20dp"
-        android:text="username"
+        android:hint="@string/username"
+        android:padding="10dp"
         android:textAlignment="center" />
 
 
     <EditText
+        android:id="@+id/etLogin_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:hint="@string/password_low"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:paddingTop="10dp"
-        android:text="password"
         android:textAlignment="center" />
 
     <Button
+        android:id="@+id/btLogin_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
-        android:text="LOGIN"
-        android:padding="10dp" />
+        android:layout_marginRight="5dp"
+        android:padding="10dp"
+        android:paddingTop="15dp"
+        android:text="@string/log_button" />
 
     <TextView
+        android:id="@+id/tvLogin_newUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
-        android:text="new user"
-        android:textSize="18dp"
-        android:textAlignment="center" />
+        android:text="@string/new_user"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
 
 </LinearLayout>

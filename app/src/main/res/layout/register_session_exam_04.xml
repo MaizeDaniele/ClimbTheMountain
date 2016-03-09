@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/tbSessionExam_Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
@@ -20,38 +19,44 @@
 
 
         <TextView
+            android:id="@+id/tvSessionExam_examName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Exam's Name"
-            android:textSize="16dp" />
+            android:text="@string/exams_name"
+            android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/etSessionExam_examName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp" />
 
 
         <TextView
+            android:id="@+id/tvSessionExam_cfu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="CFU"
-            android:textSize="16dp" />
+            android:text="@string/cfu"
+            android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/etSessionExam_cfu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp" />
 
         <TextView
+            android:id="@+id/tvSessionExam_deadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Exam's Deadline"
-            android:textSize="16dp" />
+            android:text="@string/exam_dead"
+            android:textSize="16sp" />
 
         <DatePicker
+            android:id="@+id/dpSessionExam_deadline"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -62,16 +67,14 @@
         </DatePicker>
 
         <TextView
+            android:id="@+id/tvSessionExam_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Exam associate color"
-            android:textSize="16dp" />
+            android:text="@string/exam_color"
+            android:textSize="16sp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left" />
+        <!-- color-pick button -->
 
 
     </LinearLayout>

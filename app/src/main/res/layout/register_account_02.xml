@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/tbReg_Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
@@ -13,70 +13,79 @@
 
 
     <TextView
+        android:id="@+id/tvReg_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Name"
-        android:textSize="16dp" />
+        android:text="@string/name"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/etReg_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />
 
 
     <TextView
+        android:id="@+id/tvReg_surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Surname"
-        android:textSize="16dp" />
+        android:text="@string/surname"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/etReg_surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />
 
 
     <TextView
+        android:id="@+id/tvReg_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Username"
-        android:textSize="16dp" />
+        android:text="@string/username"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/etReg_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />
 
 
     <TextView
+        android:id="@+id/tvReg_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Password"
-        android:textSize="16dp" />
+        android:text="@string/password_Up"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/etReg_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />
 
 
     <TextView
+        android:id="@+id/tvReg_passRep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Repeat Password"
-        android:textSize="16dp" />
+        android:text="@string/repeat_pass"
+        android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/etReg_passRep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />
 
-    <!-- need to discuss about confirm button-->
 
 
 </LinearLayout>
