@@ -1,12 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.climbthemountain.RegisterSessionSummary">
+    android:layout_height="match_parent">
 
-</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolBar"
+            android:background="@color/colorPrimaryDark"
+            android:paddingBottom="20dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/tvName"
+            android:layout_below="@+id/toolBar"
+            android:text="Name : "
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/tvNameShow"
+            android:layout_toRightOf="@+id/tvName"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/toolBar"
+            android:text="Pippo"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="4dp"
+            android:padding="10dp"
+            android:text="Modify"
+            android:textAlignment="gravity"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/toolBar" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:id="@+id/tvSurname"
+            android:layout_below="@+id/tvName"
+            android:text="Surname : "
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/tvSurname"
+
+            android:layout_below="@+id/tvName"
+            android:text="Pippo"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:id="@+id/tvUsername"
+            android:layout_below="@+id/tvSurname"
+            android:text="Username : "
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/tvSurname"
+
+            android:layout_below="@+id/tvSurname"
+            android:text="Pippo"
+            android:textSize="18dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/tvSession"
+            android:layout_below="@+id/tvUsername"
+            android:text="Session Starts : "
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/tvSession"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tvUsername"
+            android:text="Pippo"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="4dp"
+            android:padding="10dp"
+            android:text="Modify"
+            android:textAlignment="gravity"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tvUsername" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+
+            android:id="@+id/tvHours"
+            android:layout_below="@+id/tvSession"
+            android:text="Surname : "
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/tvHours"
+
+            android:layout_below="@+id/tvSession"
+            android:text="Pippo"
+            android:textSize="18dp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </ListView>
+
+
+    </RelativeLayout>
+
+</ScrollView>
