@@ -8,11 +8,33 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">  <!-- used to set action bar-->
-        <activity android:name=".RegisterAccountData" />
-        <activity android:name=".RegisterSessionData" />
-        <activity android:name=".RegisterSessionExam" />
-        <activity android:name=".RegisterSessionSummary" />
-        <activity android:name=".Login">
+
+        <!-- Activity Register Account-->
+        <activity
+            android:name=".RegisterAccountData"
+            android:label="@string/activity_register"/>
+
+        <!--Activity Register Session-->
+        <activity
+            android:name=".RegisterSessionData"
+            android:label="@string/activity_session"/>
+
+        <!--Activity Register Exam-->
+        <activity
+            android:name=".RegisterSessionExam"
+            android:label="@string/activity_exams"/>
+
+        <!--Activity Summary-->
+        <activity
+            android:name=".RegisterSessionSummary"
+            android:label="@string/activity_summary"/>
+
+
+        <!--Activity Main - Login-->
+        <activity
+            android:name=".Login"
+            android:label="@string/activity_login">
+
             <intent-filter>
                 <!-- used to set launcher activity -->
                 <action android:name="android.intent.action.MAIN"/>

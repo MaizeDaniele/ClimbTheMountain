@@ -9,17 +9,30 @@
     <string name="password_Up">Password</string>
     <string name="repeat_pass">Repeat Password</string>
     <string name="session_start">Session Start</string>
-    <string name="week_hours">Weekly Studies' Hours</string>
+    <string name="week_hours">Weekly Studies\' Hours</string>
     <string name="exams">Exams</string>
-    <string name="exams_name">Exam's Name</string>
+    <string name="exams_name">Exam\'s Name</string>
     <string name="cfu">CFU</string>
-    <string name="exam_dead">Exam's Deadline</string>
+    <string name="exam_dead">Exam\'s Deadline</string>
     <string name="exam_color">Exam Associate Color</string>
     <string name="name_display"> Name :</string>
     <string name="surname_display">Surname :</string>
     <string name="username_display">Username :</string>
     <string name="session_display">Session starts : </string>
     <string name="hours_display">Weekly Hours :</string>
-    <string name="button_mod">Modify</string>
-    
+
+
+    // buttons' name
+    <string name="bt_act_done">Done</string>
+    <string name="bt_mod">Modify</string>
+    <string name="bt_add_hours">Add Study Hours</string>
+    <string name="bt_add_exam">Add Exam</string>
+    <string name="bt_pck_color">Select Color</string>
+
+    // activity's name
+    <string name="activity_register">Registration</string>
+    <string name="activity_session">Session Setup</string>
+    <string name="activity_exams">Exam Setup</string>
+    <string name="activity_summary">Summary</string>
+    <string name="activity_login">Login</string>
 </resources>
