@@ -11,10 +11,10 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/tbSessionExam_Toolbar"
+            android:id="@+id/tbSessionExam_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/white"
             android:paddingBottom="20dp" />
 
 
@@ -75,6 +75,12 @@
             android:textSize="16sp" />
 
         <!-- color-pick button -->
+        <Button
+            android:id="@+id/btSessionExam_colorPck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/bt_pck_color"/>
 
 
     </LinearLayout>

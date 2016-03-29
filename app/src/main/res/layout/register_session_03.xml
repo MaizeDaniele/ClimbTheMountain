@@ -9,10 +9,10 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/tbSession_Toolbar"
+            android:id="@+id/tbSession_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/white"
             android:paddingBottom="20dp" />
 
 
@@ -25,7 +25,7 @@
             android:textSize="16sp" />
 
         <DatePicker
-            android:id="@+id/dpSession_Date"
+            android:id="@+id/dpSession_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -45,6 +45,12 @@
             android:textSize="16sp" />
 
         <!-- calendar Button-->
+        <Button
+            android:id="@+id/btSession_addStudyHours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/bt_add_hours"/>
 
 
         <TextView
@@ -57,7 +63,7 @@
             android:textSize="16sp" />
 
         <ListView
-            android:id="@+id/lvSession_List"
+            android:id="@+id/lvSession_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
@@ -66,6 +72,12 @@
         </ListView>
 
         <!-- button to add Exams -->
+        <Button
+            android:id="@+id/btSession_addExam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/bt_add_exam"/>
 
     </LinearLayout>
 
