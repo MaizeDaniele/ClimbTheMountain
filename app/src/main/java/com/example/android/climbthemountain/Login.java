@@ -11,11 +11,14 @@ import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
 
+    static final String USER_OBJ= "com.example.Intent.USER";
+
     // elements
     Button btLogin;
     EditText etUsername;
     EditText etPassword;
     TextView tvNewUser;
+
 
 
 
