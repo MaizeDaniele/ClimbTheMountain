@@ -1,0 +1,425 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tbReg_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_go_backward"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.60"
+            android:background="@drawable/ic_navigate_before_black_24dp"/>
+
+        <TextView
+
+            android:id="@+id/tv_day_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:paddingTop="5dp"
+            android:text="@string/tv_monday"
+            android:textAlignment="center"
+            android:textColor="@color/deep_orange_600"
+            android:textIsSelectable="false"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bt_go_forward"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.60"
+            android:background="@drawable/ic_navigate_next_black_24dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_space1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="25dp"/>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+
+
+
+
+
+            <TextView
+                android:id="@+id/eightOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/eightOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/nineOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/nineOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/tenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/tenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/elevenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/elevenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/twelveOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/twelveOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/thirteenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/thirteenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/fourteenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/fourteenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/fifteenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/fifteenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/sixteenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/sixteenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/seventeenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/seventeenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/eighteenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/eighteenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/nineteenOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/nineteenOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/twentyOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/twentyOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/twentyOneOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/twentyOneOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/twentyTwoOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/twentyTwoOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#c0c0c0" />
+
+
+            <TextView
+                android:id="@+id/twentyThreeOClock"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="@string/twentyThreeOClock"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
