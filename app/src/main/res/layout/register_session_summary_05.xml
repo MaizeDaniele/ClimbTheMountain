@@ -1,150 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
-    <RelativeLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tbSessionSum_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="20dp" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tbSessionSum_toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:paddingBottom="20dp" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_space2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvSessionSum_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_space2"
+                android:layout_marginTop="8dp"
+                android:padding="10dp"
+                android:text="@string/name_display"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvSessionSum_nameShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_space2"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/tvSessionSum_name"
+                android:padding="10dp"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/btSessionSum_editUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tv_space2"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="8dp"
+                android:padding="10dp"
+                android:text="@string/bt_mod"
+                android:textAlignment="gravity" />
 
 
-        <TextView
-            android:id="@+id/tvSessionSum_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tbSessionSum_toolbar"
-            android:layout_marginTop="8dp"
-            android:padding="10dp"
-            android:text="@string/name_display"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvSessionSum_surname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_name"
 
-        <TextView
-            android:id="@+id/tvSessionSum_nameShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tbSessionSum_toolbar"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/tvSessionSum_name"
-            android:padding="10dp"
-            android:textSize="18dp"/>
+                android:padding="10dp"
+                android:text="@string/surname_display"
+                android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/btSessionSum_editUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/tbSessionSum_toolbar"
-            android:layout_marginEnd="4dp"
-            android:layout_marginTop="8dp"
-            android:padding="10dp"
-            android:text="@string/bt_mod"
-            android:textAlignment="gravity" />
+            <TextView
+                android:id="@+id/tvSessionSum_surnameShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_name"
+                android:layout_toEndOf="@+id/tvSessionSum_surname"
+                android:padding="10dp" />
 
+            <TextView
+                android:id="@+id/tvSessionSum_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_surname"
+                android:padding="10dp"
+                android:text="@string/username_display"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tvSessionSum_surname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_name"
-
-            android:padding="10dp"
-            android:text="@string/surname_display"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvSessionSum_surnameShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_name"
-            android:layout_toEndOf="@+id/tvSessionSum_surname"
-            android:padding="10dp" />
-
-        <TextView
-            android:id="@+id/tvSessionSum_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_surname"
-            android:padding="10dp"
-            android:text="@string/username_display"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvSessionSum_usernameShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_surname"
-            android:layout_toEndOf="@+id/tvSessionSum_surname"
-            android:padding="10dp" />
+            <TextView
+                android:id="@+id/tvSessionSum_usernameShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_surname"
+                android:layout_toEndOf="@+id/tvSessionSum_surname"
+                android:padding="10dp" />
 
 
-        <TextView
-            android:id="@+id/tvSessionSum_sessionStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_username"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"
-            android:text="@string/session_display"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvSessionSum_sessionStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_username"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:text="@string/session_display"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tvSessionSum_sessionStartShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_username"
-            android:layout_marginTop="15dp"
-            android:layout_toEndOf="@+id/tvSessionSum_sessionStart"
-            android:padding="10dp" />
+            <TextView
+                android:id="@+id/tvSessionSum_sessionStartShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_username"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/tvSessionSum_sessionStart"
+                android:padding="10dp" />
 
-        <Button
-            android:id="@+id/btSessionSum_editSession"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/tvSessionSum_username"
-            android:layout_marginEnd="4dp"
-            android:layout_marginTop="15dp"
-            android:padding="10dp"
-            android:text="@string/bt_mod"
-            android:textAlignment="gravity" />
-
-
-        <TextView
-            android:id="@+id/tvSessionSum_hours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_sessionStart"
-            android:padding="10dp"
-            android:text="@string/hours_display"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvSessionSum_hoursShow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_sessionStartShow"
-            android:layout_toEndOf="@+id/tvSessionSum_hours"
-            android:padding="10dp" />
-
-        <ListView
-            android:id="@+id/lvSessionSum_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvSessionSum_hours"
-            android:layout_marginTop="20dp">
-
-        </ListView>
+            <Button
+                android:id="@+id/btSessionSum_editSession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tvSessionSum_username"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:text="@string/bt_mod"
+                android:textAlignment="gravity" />
 
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tvSessionSum_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_sessionStart"
+                android:padding="10dp"
+                android:text="@string/hours_display"
+                android:textSize="18sp" />
 
-</ScrollView>
+            <TextView
+                android:id="@+id/tvSessionSum_hoursShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_sessionStartShow"
+                android:layout_toEndOf="@+id/tvSessionSum_hours"
+                android:padding="10dp" />
+
+            <ListView
+                android:id="@+id/lvSessionSum_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSessionSum_hours"
+                android:layout_marginTop="20dp">
+
+            </ListView>
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>
