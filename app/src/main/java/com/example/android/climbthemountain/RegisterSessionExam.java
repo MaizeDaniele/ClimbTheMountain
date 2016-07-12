@@ -61,7 +61,7 @@ public class RegisterSessionExam extends AppCompatActivity {
     }
 
 
-    // need to handle content return to display inserted exams on the list view
+    // need to handle content returning to display inserted exams in the list view
     private void saveExamData() {
         startActivity(new Intent(getApplicationContext(), RegisterSessionData.class));
     }

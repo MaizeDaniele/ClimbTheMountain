@@ -30,6 +30,15 @@
             android:label="@string/activity_summary"/>
 
 
+        <activity android:name=".CustomCalendar.Monday" android:label="@string/activity_custom_calendar"/>
+        <activity android:name=".CustomCalendar.Tuesday" android:label="@string/activity_custom_calendar"/>
+        <activity android:name=".CustomCalendar.Wednesday" android:label="@string/activity_custom_calendar"/>
+        <activity android:name=".CustomCalendar.Thursday" android:label="@string/activity_custom_calendar"/>
+        <activity android:name=".CustomCalendar.Friday" android:label="@string/activity_custom_calendar"/>
+        <activity android:name=".CustomCalendar.Saturday" android:label="@string/activity_custom_calendar"/>
+        <activity android:name=".CustomCalendar.Sunday" android:label="@string/activity_custom_calendar"/>
+
+
         <!--Activity Main - Login-->
         <activity
             android:name=".Login"
