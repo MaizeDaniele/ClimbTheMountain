@@ -7,10 +7,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
+
+import com.example.android.climbthemountain.CustomAdapter.ExamAdapter;
+import com.example.android.climbthemountain.user_data.ExamData;
+
+import java.util.ArrayList;
 
 public class RegisterSessionData extends AppCompatActivity implements View.OnClickListener{
 
@@ -18,11 +24,17 @@ public class RegisterSessionData extends AppCompatActivity implements View.OnCli
     // elements
     DatePicker dpSessionStart;
     Button btAddStudyHours;
-    Button btAddExam;
-    ListView lvExams;
+
 
     // toolbar
     Toolbar tbRegistration;
+
+
+
+
+
+
+
 
 
 
@@ -34,8 +46,11 @@ public class RegisterSessionData extends AppCompatActivity implements View.OnCli
         // element instance
         dpSessionStart = (DatePicker) findViewById(R.id.dpSession_date);
         btAddStudyHours = (Button) findViewById(R.id.btSession_addStudyHours);
-        btAddExam = (Button) findViewById(R.id.btSession_addExam);
-        lvExams = (ListView) findViewById(R.id.lvSession_list);
+
+
+
+
+
 
 
         // toolbar registration
@@ -43,8 +58,21 @@ public class RegisterSessionData extends AppCompatActivity implements View.OnCli
         setSupportActionBar(tbRegistration);
 
         // button registration
-        btAddExam.setOnClickListener(this);
+
         btAddStudyHours.setOnClickListener(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -68,16 +96,23 @@ public class RegisterSessionData extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case  R.id.btSession_addExam:
-                startActivity(new Intent(this, RegisterSessionExam.class));
-                return;
+
         }
 
     }
 
 
+
     // method to save user details
     private void saveSessionData(){
-        startActivity(new Intent(getApplicationContext(), RegisterSessionSummary.class));
+        Intent intent = new Intent(this, RegisterSessionExamSelection.class);
+        intent.putExtra("codice", "continua");
+        startActivity(intent);
     }
+
+
+
 }
+
+
+

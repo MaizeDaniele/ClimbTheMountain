@@ -83,4 +83,6 @@
     <string name="tv_friday">Friday</string>
     <string name="tv_saturday">Saturday</string>
     <string name="tv_sunday">Sunday</string>
+
+    <string name="labelColor_ExamListView">Color:</string>
 </resources>

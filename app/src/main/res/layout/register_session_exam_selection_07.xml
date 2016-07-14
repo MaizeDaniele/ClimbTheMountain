@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="25">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tbSession_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:paddingBottom="20dp"
+        android:layout_weight="3"/>
+
+    <TextView
+        android:id="@+id/tvSession_exams"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:text="@string/exams"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:layout_weight="2"/>
+
+    <ListView
+        android:id="@+id/lvSession_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="18">
+
+    </ListView>
+
+    <!-- button to add Exams -->
+    <Button
+        android:id="@+id/btSession_addExam"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:text="@string/bt_add_exam"
+        android:layout_weight="2"/>
+</LinearLayout>
+

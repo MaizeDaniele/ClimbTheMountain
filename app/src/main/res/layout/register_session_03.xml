@@ -53,31 +53,6 @@
             android:text="@string/bt_add_hours"/>
 
 
-        <TextView
-            android:id="@+id/tvSession_exams"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="@string/exams"
-            android:textSize="16sp" />
-
-        <ListView
-            android:id="@+id/lvSession_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
-
-
-        </ListView>
-
-        <!-- button to add Exams -->
-        <Button
-            android:id="@+id/btSession_addExam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/bt_add_exam"/>
 
     </LinearLayout>
 

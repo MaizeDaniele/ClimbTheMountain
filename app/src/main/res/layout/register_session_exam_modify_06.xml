@@ -7,7 +7,7 @@
 
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/tbSessionExam_toolbar"
+        android:id="@+id/tbSessionExam_toolbar_Mod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -26,12 +26,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_space3"
+                android:id="@+id/tv_space3_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/tvSessionExam_examName"
+                android:id="@+id/tvSessionExam_examName_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -39,14 +39,14 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/etSessionExam_examName"
+                android:id="@+id/etSessionExam_examName_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp" />
 
 
             <TextView
-                android:id="@+id/tvSessionExam_cfu"
+                android:id="@+id/tvSessionExam_cfu_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -54,13 +54,13 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/etSessionExam_cfu"
+                android:id="@+id/etSessionExam_cfu_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp" />
 
             <TextView
-                android:id="@+id/tvSessionExam_deadline"
+                android:id="@+id/tvSessionExam_deadline_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -70,7 +70,7 @@
             <!--Ok... rendering problem seems to be caused by this DataPicker-->
 
             <DatePicker
-                android:id="@+id/dpSessionExam_deadline"
+                android:id="@+id/dpSessionExam_deadline_Mod"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -81,7 +81,7 @@
             </DatePicker>
 
             <TextView
-                android:id="@+id/tvSessionExam_color"
+                android:id="@+id/tvSessionExam_color_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -90,14 +90,40 @@
 
             <!-- color-pick button -->
             <Button
-                android:id="@+id/btSessionExam_colorPck"
+                android:id="@+id/btSessionExam_colorPck_Mod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/bt_pck_color"/>
 
 
+            <!--I've provided two options, one to cancel and ignore changes and one
+                to delete the subject. Be aware! this should be allowed only once the
+                data has been inserted ;) -->
 
+            <Button
+                android:id="@+id/btCancel"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="50dp"
+                android:padding="10dp"
+                android:paddingTop="15dp"
+                android:text="@string/bt_cancel" />
+
+            <Button
+                android:id="@+id/btDelete"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:padding="10dp"
+                android:paddingTop="15dp"
+                android:text="@string/delete"
+                />
 
         </LinearLayout>
 

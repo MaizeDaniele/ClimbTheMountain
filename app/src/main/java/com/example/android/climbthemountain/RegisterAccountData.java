@@ -65,7 +65,13 @@ public class RegisterAccountData extends AppCompatActivity {
 
     // method to save user details
     private void saveRegisterData(){
-        startActivity(new Intent(getApplicationContext(), RegisterSessionData.class));
+
+
+
+        Intent intent = new Intent(getApplicationContext(), RegisterSessionData.class);
+
+
+        startActivity(intent);
     }
 
 
