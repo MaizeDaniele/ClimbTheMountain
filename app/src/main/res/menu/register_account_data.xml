@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/btConfirm"
-        android:icon="@drawable/ic_done_black_24dp"
+        android:icon="@drawable/ic_action_name"
         android:title="@string/bt_act_done"
         app:showAsAction="always"/>
 </menu>

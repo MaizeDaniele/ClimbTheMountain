@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nomeEsame_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_margin="5dp"
+        />
+
+    <TextView
+        android:id="@+id/cfuEsame_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/nomeEsame_TextView"
+        android:textSize="30dp"
+        android:layout_margin="5dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/dataEsame_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nomeEsame_TextView"
+        android:textSize="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        />
+
+    <TextView
+        android:id="@+id/labelColor_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/labelColor_ExamListView"
+        android:layout_below="@id/dataEsame_TextView"
+        android:layout_marginLeft="15dp"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/coloreEsame_TextView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_toRightOf="@id/labelColor_TextView"
+        android:layout_below="@id/dataEsame_TextView"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <Button
+        android:id="@+id/modifica_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modifica"
+        android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>
