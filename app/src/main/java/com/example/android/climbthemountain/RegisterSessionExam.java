@@ -92,9 +92,6 @@ public class RegisterSessionExam extends AppCompatActivity {
         //Ho recuperato i dati dell'esame, lo passo all'activity 03
 
 
-
-
-
         Intent intent = new Intent(this, RegisterSessionExamSelection.class);
         intent.putExtra("esame", esame);
         intent.putExtra("codice", "aggiungiEsame");

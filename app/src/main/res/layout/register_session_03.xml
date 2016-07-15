@@ -32,7 +32,6 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             android:spinnersShown="true">
-
         </DatePicker>
 
         <TextView
@@ -40,18 +39,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"
             android:padding="10dp"
             android:text="@string/week_hours"
             android:textSize="16sp" />
 
-        <!-- calendar Button-->
+        <TextView
+            android:id="@+id/tvSession_ErrorHours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="@string/error_insert_hours"
+            android:textSize="16sp" />
+
         <Button
             android:id="@+id/btSession_addStudyHours"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="40dp"
             android:text="@string/bt_add_hours"/>
 
+        <TextView
+            android:id="@+id/tvSession_ErrorExams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="@string/error_insert_exams"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btSession_addExam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/bt_add_exam"/>
 
 
     </LinearLayout>

@@ -11,9 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.android.climbthemountain.CustomCalendar.BaseWeekDay;
+import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.DailyHours;
+import com.example.android.climbthemountain.CustomCalendar.Monday;
+import com.example.android.climbthemountain.user_data.UserData;
+
 import org.w3c.dom.Text;
 
-public class RegisterSessionSummary extends AppCompatActivity implements View.OnClickListener{
+public class RegisterSessionSummary extends AppCompatActivity{
 
     // elements
     TextView tvName;
@@ -23,9 +28,12 @@ public class RegisterSessionSummary extends AppCompatActivity implements View.On
     TextView tvSessionstart;
     Button btEditAccount;
     Button btEditSession;
+    Button btEditHours;
 
     // toolbar
     Toolbar tbRegistration;
+
+    UserData accountData = new UserData();
 
 
     @Override
@@ -43,19 +51,60 @@ public class RegisterSessionSummary extends AppCompatActivity implements View.On
         // buttons
         btEditAccount = (Button) findViewById(R.id.btSessionSum_editUser);
         btEditSession = (Button) findViewById(R.id.btSessionSum_editSession);
-
+        btEditHours = (Button) findViewById(R.id.btSessionSum_editHours);
 
         // toolbar
         tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
 
-        // button registration
-        btEditSession.setOnClickListener(this);
-        btEditAccount.setOnClickListener(this);
+
+        Intent intent = getIntent();
+
+        if(intent != null){
+            if (intent.getParcelableExtra(Login.USER_OBJ) != null) {
+                accountData = intent.getParcelableExtra(Login.USER_OBJ);
+            }
+        }
 
 
-        // little debug
+        btEditAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        tvName.setText("Marco");
+                Intent nextIntent = new Intent(getApplicationContext(), RegisterAccountData.class);
+                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.isSUMMARY, true);
+                startActivity(nextIntent);
+
+            }
+        });
+
+        btEditHours.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent nextIntent = new Intent(getApplicationContext(), Monday.class);
+                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.isSUMMARY, true);
+                startActivity(nextIntent);
+
+            }
+        });
+
+        btEditSession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
+                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.isSUMMARY, true);
+                startActivity(nextIntent);
+
+            }
+        });
+
+
+        fillContent();
+
 
     }
 
@@ -71,30 +120,21 @@ public class RegisterSessionSummary extends AppCompatActivity implements View.On
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Start to the END :P
         return super.onOptionsItemSelected(item);
+
     }
 
-    // manage buttons
+    private void fillContent(){
 
+        tvName.setText(accountData.getName());
+        tvSurname.setText(accountData.getSurname());
+        tvUsername.setText(accountData.getUsername());
+        tvSessionstart.setText(String.format("%d %d %d", accountData.getSession_day(),
+                accountData.getSession_month(), accountData.getSession_year()));
+        tvWeeklyHour.setText(String.valueOf( BaseWeekDay.countHours(accountData.userSelectedHours)));
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btSessionSum_editUser:
-                startActivity(new Intent(this, RegisterAccountData.class));
-
-                /* we need a way to return from the account data to this summary.
-                * note: if the user press the done button in the app bar, he goes back to the register
-                * session page.
-                * we need a way to bring him back to this one, changing the way the button acts or
-                * adding a new ( previously hidden) button
-                 */
-
-                break;
-
-            case R.id.btSessionSum_editSession:
-                startActivity(new Intent(this, RegisterSessionData.class));
-                break;
-        }
     }
+
 }

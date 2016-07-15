@@ -137,6 +137,17 @@
                 android:text="@string/hours_display"
                 android:textSize="18sp" />
 
+
+            <Button
+                android:id="@+id/btSessionSum_editHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/bt_mod"
+                android:textAlignment="gravity"
+                android:layout_alignTop="@+id/tvSessionSum_hours"
+                android:layout_alignStart="@+id/btSessionSum_editSession" />
+
             <TextView
                 android:id="@+id/tvSessionSum_hoursShow"
                 android:layout_width="wrap_content"
