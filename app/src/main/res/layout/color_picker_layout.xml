@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ColorPickerGridView"
+
+    android:columnWidth="36dp"
+
+    android:numColumns="auto_fit"
+    android:verticalSpacing="50dp"
+    android:horizontalSpacing="20dp"
+    android:stretchMode="spacingWidth"
+    android:gravity="center"
+    >
+
+</GridView>

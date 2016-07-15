@@ -25,8 +25,10 @@ import java.util.ArrayList;
  */
 public class ExamAdapter extends BaseAdapter {
 
-    ArrayList<ExamData> listaEsami;
-    Context context;
+    private ArrayList<ExamData> listaEsami;
+    private Context context;
+    private ExamData esame;
+    private int position;
 
     public ExamAdapter(ArrayList<ExamData> listaEsami, Context context){
         this.listaEsami = listaEsami;
@@ -58,8 +60,9 @@ public class ExamAdapter extends BaseAdapter {
         }
 
         //Recupero dalla listaEsami l'esame da raffigurare
-        final ExamData esame = listaEsami.get(position);
+        esame = listaEsami.get(position);
 
+        this.position = position;
 
 
 
@@ -91,11 +94,16 @@ public class ExamAdapter extends BaseAdapter {
             public void onClick(View v) {
                 //Devo avviare l'activity RegisterSessionExamModify
                 //Devo passare i dati dell'esame e anche la position
+
                 context.startActivity(intent);
             }
         });
 
         return v;
+    }
+
+    public int getPosition(){
+        return position;
     }
 
 }

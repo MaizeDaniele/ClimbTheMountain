@@ -79,14 +79,26 @@
                 android:spinnersShown="true">
 
             </DatePicker>
-
-            <TextView
-                android:id="@+id/tvSessionExam_color_Mod"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/exam_color"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/tvSessionExam_color_Mod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/exam_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvSessionExam_colorSquare_Mod"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_toRightOf="@id/tvSessionExam_color_Mod"
+                    android:background="#000000"/>
+            </RelativeLayout>
+
 
             <!-- color-pick button -->
             <Button
