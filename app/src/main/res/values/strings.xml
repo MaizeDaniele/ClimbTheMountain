@@ -1,3 +1,110 @@
 <resources>
     <string name="app_name">ClimbTheMountain</string>
+    <string name="username">Username</string>
+    <string name="password_low">password</string>
+    <string name="log_button">LOGIN</string>
+    <string name="new_user">New User</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="password_Up">Password</string>
+    <string name="repeat_pass">Repeat Password</string>
+    <string name="session_start">Session Start</string>
+    <string name="week_hours">Weekly Studies\' Hours</string>
+    <string name="exams">Exams</string>
+    <string name="exams_name">Exam\'s Name</string>
+    <string name="cfu">CFU</string>
+    <string name="exam_dead">Exam\'s Deadline</string>
+    <string name="exam_color">Exam Associate Color</string>
+    <string name="name_display"> Name :</string>
+    <string name="surname_display">Surname :</string>
+    <string name="username_display">Username :</string>
+    <string name="session_display">Session starts : </string>
+    <string name="hours_display">Weekly Hours :</string>
+    <string name="delete">Delete</string>
+
+
+    // buttons' name
+    <string name="bt_act_done">Done</string>
+    <string name="bt_mod">Modify</string>
+    <string name="bt_add_hours">Add Study Hours</string>
+    <string name="bt_add_exam">Add Exam</string>
+    <string name="bt_pck_color">Select Color</string>
+    <string name="bt_cancel">Cancel</string>
+
+    // activity's name
+    <string name="activity_register">Registration</string>
+    <string name="activity_session">Session Setup</string>
+    <string name="activity_exams">Exam Setup</string>
+    <string name="activity_summary">Summary</string>
+    <string name="activity_login">Login</string>
+    <string name="activity_custom_calendar">Hours Selector</string>
+
+    // hints string
+
+    <string name="hint_error_name">Please, enter your name here!</string>
+    <string name="hint_error_surname">Please, enter your surname here!</string>
+    <string name="hint_error_username">Please, enter a surname!</string>
+    <string name="hint_error_password">Please enter a password!</string>
+    <string name="hint_error_password_rep">Password must match!</string>
+    <string name="hint_error_password_rep_match">Repeat the password here!</string>
+
+    <string name="hint_general_name">Insert your name here</string>
+    <string name="hint_general_surname">Insert your surname here</string>
+    <string name="hint_general_username">Chose a username</string>
+    <string name="hint_general_password">Insert a strong password</string>
+    <string name="hint_general_password_rep">Repeat your password</string>
+
+    <string name="error_insert_hours">Configure your hour weekly plan!</string>
+    <string name="error_insert_exams">Add at least one exam!</string>
+
+
+
+
+
+    // customCalendar
+
+    <!--<string name="eightOClock">8:00am</string>-->
+    <!--<string name="nineOClock">9:00am</string>-->
+    <!--<string name="tenOClock">10:00am</string>-->
+    <!--<string name="elevenOClock">11:00am</string>-->
+    <!--<string name="twelveOClock">12:00am</string>-->
+    <!--<string name="thirteenOClock">1:00pm</string>-->
+    <!--<string name="fourteenOClock">2:00pm</string>-->
+    <!--<string name="fifteenOClock">3:00pm</string>-->
+    <!--<string name="sixteenOClock">4:00pm</string>-->
+    <!--<string name="seventeenOClock">5:00pm</string>-->
+    <!--<string name="eighteenOClock">6:00pm</string>-->
+    <!--<string name="nineteenOClock">7:00pm</string>-->
+    <!--<string name="twentyOClock">8:00pm</string>-->
+    <!--<string name="twentyOneOClock">9:00pm</string>-->
+    <!--<string name="twentyTwoOClock">10:00pm</string>-->
+    <!--<string name="twentyThreeOClock">11:00pm</string>-->
+
+    <string name="eightOClock">8:00</string>
+    <string name="nineOClock">9:00</string>
+    <string name="tenOClock">10:00</string>
+    <string name="elevenOClock">11:00</string>
+    <string name="twelveOClock">12:00</string>
+    <string name="thirteenOClock">13:00</string>
+    <string name="fourteenOClock">14:00</string>
+    <string name="fifteenOClock">15:00</string>
+    <string name="sixteenOClock">16:00</string>
+    <string name="seventeenOClock">17:00</string>
+    <string name="eighteenOClock">18:00</string>
+    <string name="nineteenOClock">19:00</string>
+    <string name="twentyOClock">20:00</string>
+    <string name="twentyOneOClock">21:00</string>
+    <string name="twentyTwoOClock">22:00</string>
+    <string name="twentyThreeOClock">23:00</string>
+
+
+    <string name="tv_monday">Monday</string>
+    <string name="tv_tuesday">Tuesday</string>
+    <string name="tv_wednesday">Wednesday</string>
+    <string name="tv_thursday">Thursday</string>
+    <string name="tv_friday">Friday</string>
+    <string name="tv_saturday">Saturday</string>
+    <string name="tv_sunday">Sunday</string>
+
+    <string name="labelColor_ExamListView">Color:</string>
 </resources>
