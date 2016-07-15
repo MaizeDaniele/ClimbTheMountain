@@ -39,6 +39,28 @@
     <string name="activity_login">Login</string>
     <string name="activity_custom_calendar">Hours Selector</string>
 
+    // hints string
+
+    <string name="hint_error_name">Please, enter your name here!</string>
+    <string name="hint_error_surname">Please, enter your surname here!</string>
+    <string name="hint_error_username">Please, enter a surname!</string>
+    <string name="hint_error_password">Please enter a password!</string>
+    <string name="hint_error_password_rep">Password must match!</string>
+    <string name="hint_error_password_rep_match">Repeat the password here!</string>
+
+    <string name="hint_general_name">Insert your name here</string>
+    <string name="hint_general_surname">Insert your surname here</string>
+    <string name="hint_general_username">Chose a username</string>
+    <string name="hint_general_password">Insert a strong password</string>
+    <string name="hint_general_password_rep">Repeat your password</string>
+
+    <string name="error_insert_hours">Configure your hour weekly plan!</string>
+    <string name="error_insert_exams">Add at least one exam!</string>
+
+
+
+
+
     // customCalendar
 
     <!--<string name="eightOClock">8:00am</string>-->

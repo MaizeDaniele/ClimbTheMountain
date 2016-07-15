@@ -3,6 +3,7 @@ package com.example.android.climbthemountain.CustomCalendar;
 import android.content.Intent;
 import android.graphics.Color;
 
+import com.example.android.climbthemountain.Login;
 import com.example.android.climbthemountain.R;
 
 /**
@@ -21,9 +22,9 @@ public class Tuesday extends BaseWeekDay {
     @Override
     protected void setHourOnClick(int hour) {
 
-        weeklyDays.getTuesday().setDayHours(hour);
+        accountData.userSelectedHours.setTuesday(hour);
 
-        if(weeklyDays.getTuesday().getDayHours(hour)){
+        if(accountData.userSelectedHours.getTuesday().getDayHours(hour)){
             hoursTextViews.get(hour-8).setTextColor(Color.BLUE);
         } else{
             hoursTextViews.get(hour-8).setTextColor(Color.GRAY);
@@ -34,7 +35,7 @@ public class Tuesday extends BaseWeekDay {
     protected void setUserSelectedHours() {
 
         for (int i = 8; i < 24; i++ ){
-            if(weeklyDays.getTuesday().getDayHours(i)){
+            if(accountData.userSelectedHours.getTuesday().getDayHours(i)){
                 hoursTextViews.get(i-8).setTextColor(Color.BLUE);
             }
         }
@@ -44,7 +45,8 @@ public class Tuesday extends BaseWeekDay {
     protected void movePreviousDay() {
 
         Intent specificIntent = new Intent(this, Monday.class);
-        specificIntent.putExtra("weekDays", weeklyDays);
+
+        specificIntent.putExtra(Login.USER_OBJ, accountData);
         startActivity(specificIntent);
     }
 
@@ -52,7 +54,8 @@ public class Tuesday extends BaseWeekDay {
     protected void moveNextDay() {
 
         Intent specificIntent = new Intent(this, Wednesday.class);
-        specificIntent.putExtra(BaseWeekDay.key_intent_extra, weeklyDays );
+
+        specificIntent.putExtra(Login.USER_OBJ, accountData);
         startActivity(specificIntent);
 
 

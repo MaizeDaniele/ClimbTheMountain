@@ -12,8 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.DailyHours;
 import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.WeeklyDays;
+import com.example.android.climbthemountain.Login;
 import com.example.android.climbthemountain.R;
+import com.example.android.climbthemountain.RegisterSessionData;
+import com.example.android.climbthemountain.RegisterSessionExamSelection;
+import com.example.android.climbthemountain.RegisterSessionSummary;
+import com.example.android.climbthemountain.user_data.UserData;
 
 import java.util.ArrayList;
 
@@ -24,7 +31,6 @@ import java.util.ArrayList;
 
 public abstract class BaseWeekDay extends AppCompatActivity {
 
-    public final static String key_intent_extra = "weekDays";
 
 
     // field
@@ -53,11 +59,8 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
     ArrayList<TextView> hoursTextViews = new ArrayList<>();
 
-    // class custom
-    WeeklyDays weeklyDays = new WeeklyDays();
-
-
-
+    boolean isSummary;
+    UserData accountData;
 
 
 
@@ -69,8 +72,14 @@ public abstract class BaseWeekDay extends AppCompatActivity {
         Intent intent = getIntent();
 
         if(intent != null){
-            if (intent.getParcelableExtra(BaseWeekDay.key_intent_extra) != null) {
-                weeklyDays = intent.getParcelableExtra(BaseWeekDay.key_intent_extra);
+            if (intent.getParcelableExtra(Login.USER_OBJ) != null) {
+
+                // possible javaNullException
+                accountData = intent.getParcelableExtra(Login.USER_OBJ);
+
+                // need to control if we come from a summary
+                isSummary = intent.getBooleanExtra(Login.isSUMMARY, false);
+
             }
         }
 
@@ -283,9 +292,29 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
     // method to save user details
     private void saveSelectedWeekHours(){
-        //start activity
-    }
 
+        // we have to dispatch the next activity
+
+        if(isSummary){
+
+
+            Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionSummary.class);
+            nextIntent.putExtra(Login.USER_OBJ, accountData);
+
+            startActivity(nextIntent);
+
+
+        } else {
+
+
+            Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
+            nextIntent.putExtra(Login.USER_OBJ, accountData);
+
+            startActivity(nextIntent);
+
+        }
+
+    }
 
 
     // abstract methods to implement
@@ -302,6 +331,22 @@ public abstract class BaseWeekDay extends AppCompatActivity {
             hoursTextViews.get(i).setTextColor(Color.GRAY);
 
         }
+    }
+
+    // static method to calculate the number of hours chosen
+    public static int countHours(WeeklyDays weeklyDays){
+
+        int count = 0;
+
+        for (DailyHours dailyHours : weeklyDays.weekDaysList){
+            for( boolean hour : dailyHours.getDayHours()){
+
+                if(hour) count++;
+
+            }
+        }
+
+        return count;
     }
 
 }
