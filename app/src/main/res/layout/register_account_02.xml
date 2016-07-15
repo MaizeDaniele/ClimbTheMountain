@@ -29,14 +29,13 @@
         android:layout_height="wrap_content"
         android:padding="10dp" />
 
-
     <TextView
         android:id="@+id/tvReg_surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/surname"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <EditText
         android:id="@+id/etReg_surname"
@@ -70,6 +69,7 @@
 
     <EditText
         android:id="@+id/etReg_pass"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />
@@ -85,6 +85,7 @@
 
     <EditText
         android:id="@+id/etReg_passRep"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp" />

@@ -63,8 +63,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".RegisterSessionExamModify" />
-        <activity android:name=".RegisterSessionExamSelection"></activity>
+        <activity android:name=".RegisterSessionExamSelection"/>
+
     </application>
 
 </manifest>

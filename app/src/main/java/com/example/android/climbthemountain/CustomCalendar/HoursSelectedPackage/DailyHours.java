@@ -8,6 +8,8 @@ import android.os.Parcelable;
  */
 public class DailyHours implements Parcelable{
 
+    public boolean[] dayHours= new boolean[24];
+
 // Array of boolean values.
 // MAP each hour with an element of the array.
 //
@@ -29,6 +31,17 @@ public class DailyHours implements Parcelable{
 // 23:00 dayHours[23]
 
 
+
+    protected DailyHours(Parcel in) {
+        dayHours = in.createBooleanArray();
+    }
+
+    public DailyHours(){
+        for (int i=0; i < dayHours.length; i++){
+            this.dayHours[i] = false;
+        }
+    }
+
     public static final Creator<DailyHours> CREATOR = new Creator<DailyHours>() {
         @Override
         public DailyHours createFromParcel(Parcel in) {
@@ -40,32 +53,17 @@ public class DailyHours implements Parcelable{
             return new DailyHours[size];
         }
     };
-    private boolean[] dayHours= new boolean[24];
-
-    public DailyHours(){
-        for (int i=0; i < dayHours.length; i++){
-            this.dayHours[i] = false;
-        }
-    }
-
-    protected DailyHours(Parcel in) {
-        dayHours = in.createBooleanArray();
-    }
-
-    public boolean[] getDayHours() {
-        return this.dayHours;
-    }
 
     public void setDayHours(int hour){
         this.dayHours[hour] = !this.dayHours[hour];
     }
 
-    public void setDayHours(boolean[] dayHours) {
-        this.dayHours = dayHours;
-    }
-
     public boolean getDayHours(int hour){
         return this.dayHours[hour];
+    }
+
+    public boolean[] getDayHours() {
+        return dayHours;
     }
 
     @Override

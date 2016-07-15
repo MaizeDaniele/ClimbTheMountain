@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
 
-    static final String USER_OBJ= "com.example.Intent.USER";
+    static final public String USER_OBJ= "com.example.Intent.USER";
+    static final public String isSUMMARY = "com.example.Intent.SUMMARY_VALUE";
+
 
     // elements
     Button btLogin;

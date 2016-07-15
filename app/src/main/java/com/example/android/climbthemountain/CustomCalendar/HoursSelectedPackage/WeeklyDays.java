@@ -21,7 +21,10 @@ public class WeeklyDays implements Parcelable{
             return new WeeklyDays[size];
         }
     };
-    ArrayList<DailyHours> weekDaysList = new ArrayList<>();
+
+    public ArrayList<DailyHours> weekDaysList = new ArrayList<>();
+
+
     private DailyHours monday = new DailyHours();
     private DailyHours tuesday = new DailyHours();
     private DailyHours wednesday = new DailyHours();
@@ -56,56 +59,56 @@ public class WeeklyDays implements Parcelable{
         return this.weekDaysList.get(0);
     }
 
-    public void setMonday(DailyHours monday) {
-        this.weekDaysList.set(0, monday);
+    public void setMonday(int hour) {
+        this.weekDaysList.get(0).setDayHours(hour);
     }
 
     public DailyHours getTuesday() {
         return this.weekDaysList.get(1);
     }
 
-    public void setTuesday(DailyHours tuesday) {
-        this.weekDaysList.set(1, tuesday);
+    public void setTuesday(int hour) {
+        this.weekDaysList.get(1).setDayHours(hour);
     }
 
     public DailyHours getWednesday() {
         return this.weekDaysList.get(2);
     }
 
-    public void setWednesday(DailyHours wednesday) {
-        this.weekDaysList.set(2, wednesday);
+    public void setWednesday(int hour) {
+        this.weekDaysList.get(2).setDayHours(hour);
     }
 
     public DailyHours getThursday() {
         return this.weekDaysList.get(3);
     }
 
-    public void setThursday(DailyHours thursday) {
-        this.weekDaysList.set(3, thursday);
+    public void setThursday(int hour) {
+        this.weekDaysList.get(3).setDayHours(hour);
     }
 
     public DailyHours getFriday() {
         return this.weekDaysList.get(4);
     }
 
-    public void setFriday(DailyHours friday) {
-        this.weekDaysList.set(4,friday);
+    public void setFriday(int hour) {
+        this.weekDaysList.get(4).setDayHours(hour);
     }
 
     public DailyHours getSaturday() {
         return this.weekDaysList.get(5);
     }
 
-    public void setSaturday(DailyHours saturday) {
-        this.weekDaysList.set(5, saturday);
+    public void setSaturday(int hour) {
+        this.weekDaysList.get(5).setDayHours(hour);
     }
 
     public DailyHours getSunday() {
         return this.weekDaysList.get(6);
     }
 
-    public void setSunday(DailyHours sunday) {
-        this.weekDaysList.set(6, sunday);
+    public void setSunday(int hour) {
+        this.weekDaysList.get(6).setDayHours(hour);
     }
 
     @Override
