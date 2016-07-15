@@ -1,6 +1,7 @@
 package com.example.android.climbthemountain;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.RemoteException;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
@@ -10,13 +11,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.android.climbthemountain.CustomDialogFragment.ColorPickerDialogFragment;
 import com.example.android.climbthemountain.user_data.ExamData;
 
-public class RegisterSessionExam extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class RegisterSessionExam extends AppCompatActivity implements ColorPickerDialogFragment.interazioneColorPicker {
 
     //QUESTA ACTIVITY VIENE RICHIAMATA DOPO CHE L'UTENTE HA PREMUTO SUL TASTO + NELLA 03 DUNQUE AGGIUNGE SOLO UN ESAME
 
@@ -32,6 +38,26 @@ public class RegisterSessionExam extends AppCompatActivity {
     //Oggetto esame
     ExamData esame;
 
+    //Stringa Colore esame Scelta dall'utente
+    String colore;
+
+    //DialogFragmentCustom
+    ColorPickerDialogFragment dialogFragment;
+
+
+
+    //Implemento i metodi dell'interfaccia
+    @Override
+    public void onPositiveButtonClick(String colore){
+        //Recupera il colore e lo aggiunge all'esame
+
+        this.colore = colore;
+        TextView txt = (TextView) findViewById(R.id.tvSessionExam_colorSquare);
+        txt.setBackgroundColor(Color.parseColor(colore));
+
+    }
+
+
 
 
     @Override
@@ -45,11 +71,26 @@ public class RegisterSessionExam extends AppCompatActivity {
         dpExamDate = (DatePicker) findViewById(R.id.dpSessionExam_deadline);
         btColor = (Button) findViewById(R.id.btSessionExam_colorPck);
 
+
+
+
         // toolbar
         tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar);
         setSupportActionBar(tbRegistration);
 
         esame = new ExamData();
+
+
+
+        btColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogFragment = ColorPickerDialogFragment.newInstance();
+                dialogFragment.show(getFragmentManager(), "dialog");
+            }
+        });
+
+
 
 
     }
@@ -85,16 +126,17 @@ public class RegisterSessionExam extends AppCompatActivity {
         esame.setMese(dpExamDate.getMonth());
         esame.setAnno(dpExamDate.getYear());
 
-        //Ancora non ho implementato il colorPicker, uso un colore Standar
-        esame.setColore("#123456");
+        if(colore != null) {
+            esame.setColore(colore);
+        }
+        else {
+            esame.setColore("#000000");
+        }
+
+
 
 
         //Ho recuperato i dati dell'esame, lo passo all'activity 03
-
-
-
-
-
         Intent intent = new Intent(this, RegisterSessionExamSelection.class);
         intent.putExtra("esame", esame);
         intent.putExtra("codice", "aggiungiEsame");

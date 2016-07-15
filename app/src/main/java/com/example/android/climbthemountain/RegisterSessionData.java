@@ -24,7 +24,7 @@ public class RegisterSessionData extends AppCompatActivity implements View.OnCli
     // elements
     DatePicker dpSessionStart;
     Button btAddStudyHours;
-
+    Button btAddExams;
 
     // toolbar
     Toolbar tbRegistration;

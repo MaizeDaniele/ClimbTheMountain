@@ -1,6 +1,7 @@
 package com.example.android.climbthemountain;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,12 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.android.climbthemountain.CustomDialogFragment.ColorPickerDialogFragment;
 import com.example.android.climbthemountain.user_data.ExamData;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class RegisterSessionExamModify extends AppCompatActivity {
+public class RegisterSessionExamModify extends AppCompatActivity implements ColorPickerDialogFragment.interazioneColorPicker {
 
     EditText etExamNameMod;
     EditText etCfuMod;
@@ -24,12 +29,19 @@ public class RegisterSessionExamModify extends AppCompatActivity {
     Button colorExamPicker;
     Button cancel;
     Button delete;
+    TextView colorPickerSelection;
 
 
     // toolbar
     Toolbar tbRegistration;
 
     ExamData esame;
+
+    //Colore scelto dall'utente
+    String colore;
+
+    //CustomDialogFragment
+    ColorPickerDialogFragment dialogFragment;
 
     Intent intent;
 
@@ -41,6 +53,9 @@ public class RegisterSessionExamModify extends AppCompatActivity {
         etExamNameMod = (EditText) findViewById(R.id.etSessionExam_examName_Mod);
         etCfuMod = (EditText) findViewById(R.id.etSessionExam_cfu_Mod);
         dpExamDate = (DatePicker) findViewById(R.id.dpSessionExam_deadline_Mod);
+
+        colorPickerSelection = (TextView) findViewById(R.id.tvSessionExam_colorSquare_Mod);
+
         colorExamPicker = (Button) findViewById(R.id.btSessionExam_colorPck_Mod);
         cancel = (Button) findViewById(R.id.btCancel);
         delete = (Button) findViewById(R.id.btDelete);
@@ -52,14 +67,12 @@ public class RegisterSessionExamModify extends AppCompatActivity {
         intent = getIntent();
         esame = intent.getParcelableExtra("esame");
 
-
+        colore = esame.getColore();
 
         //RECUPERO I DATI DA MODIFICARE DELL'ESAME
         etExamNameMod.setText(esame.getNome());
         etCfuMod.setText(String.format("%d",esame.getCfu()));
-
-        //DEVO IMPOSTARE IL COLORE NEL COLORPICKER
-
+        colorPickerSelection.setBackgroundColor(Color.parseColor(colore));
         dpExamDate.updateDate(esame.getAnno(), esame.getMese(), esame.getGiorno());
 
 
@@ -85,6 +98,25 @@ public class RegisterSessionExamModify extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        colorExamPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogFragment = ColorPickerDialogFragment.newInstance();
+                dialogFragment.show(getFragmentManager(), "dialog");
+            }
+        });
+
+    }
+
+    //Implemento i metodi dell'interfaccia
+    @Override
+    public void onPositiveButtonClick(String colore){
+        //Recupera il colore e lo aggiunge all'esame
+
+        this.colore = colore;
+        TextView txt = (TextView) findViewById(R.id.tvSessionExam_colorSquare_Mod);
+        txt.setBackgroundColor(Color.parseColor(colore));
 
     }
 
@@ -119,8 +151,13 @@ public class RegisterSessionExamModify extends AppCompatActivity {
         esame.setMese(dpExamDate.getMonth());
         esame.setAnno(dpExamDate.getYear());
 
-        //Ancora non ho implementato il colorPicker, uso un colore Standar
-        esame.setColore("#123456");
+        //In mancanza di un controllo più approfondito
+        if(colore != null) {
+            esame.setColore(colore);
+        }
+        else {
+            esame.setColore("#000000");
+        }
 
 
         //Ho recuperato i dati dell'esame, lo passo all'activity 03
@@ -135,9 +172,7 @@ public class RegisterSessionExamModify extends AppCompatActivity {
         intent.putExtra("position", this.intent.getIntExtra("position", 0));
 
         startActivity(intent);
-
-
-
-
     }
+
+
 }
