@@ -65,13 +65,9 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
     @Override
     public void onBackPressed() {
+        backAction();
 
-        //L'utente vuole tornare indietro senza far nulla
-        Intent intent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
-        //non ho più bisogno della position
-        intent.putExtra(Login.USER_OBJ, userData);
-        intent.putExtra(Login.isSUMMARY, isSummary);
-        startActivity(intent);
+
     }
 
     @Override
@@ -188,6 +184,23 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
             }
         });
 
+        etCfuMod.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) tvCFU.setTextColor(getResources().getColor(R.color.purple_400));
+                else tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+            }
+        });
+
+        etExamNameMod.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) tvExamName.setTextColor(getResources().getColor(R.color.purple_400));
+                else tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            }
+
+        });
+
         hintSetOnCreate();
     }
 
@@ -213,7 +226,21 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        saveExamData();
+
+        switch (item.getItemId()){
+
+            case (R.id.btBack):
+                backAction();
+
+                break;
+
+            case (R.id.btConfirm):
+                saveExamData();
+                break;
+
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -279,7 +306,10 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         tvCFU.setHintTextColor(getResources().getColor(R.color.grey_900));
 
         tvColorError.setVisibility(View.GONE);
-        tvColorError.setTextColor(getResources().getColor(R.color.cyan_600));
+        tvColorError.setTextColor(getResources().getColor(R.color.orange_700));
+
+        colorExamPicker.setBackgroundColor(getResources().getColor(R.color.grey_300));
+        colorExamPicker.setTextColor(getResources().getColor(R.color.grey_800));
     }
 
 
@@ -328,8 +358,8 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
         if (controllerFieldEmpty()[0] && flag) {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.cyan_600));
-            etExamNameMod.setHintTextColor(getResources().getColor(R.color.cyan_300));
+            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            etExamNameMod.setHintTextColor(getResources().getColor(R.color.orange_700));
 
             etExamNameMod.setHint(R.string.hint_error_examName_noName);
 
@@ -344,20 +374,20 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
             if (!control) {
 
-                tvCFU.setTextColor(getResources().getColor(R.color.cyan_600));
-                etCfuMod.setHintTextColor(getResources().getColor(R.color.cyan_300));
+//                tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+                etCfuMod.setHintTextColor(getResources().getColor(R.color.orange_700));
 
                 etCfuMod.setHint(R.string.hint_error_examCfu_noCfu);
 
             } else {
 
-                tvCFU.setTextColor(getResources().getColor(R.color.red_900));
+//                tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
                 etCfuMod.setHintTextColor(getResources().getColor(R.color.red_600));
             }
 
         } else {
 
-            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+//            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
 
         }
 
@@ -376,7 +406,7 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
             control = true;
 
-            tvCFU.setTextColor(getResources().getColor(R.color.red_900));
+//            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
             etCfuMod.setHintTextColor(getResources().getColor(R.color.red_600));
 
             etCfuMod.setHint(R.string.hint_error_examCfu_noChar);
@@ -389,8 +419,16 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
     private void setMessageColor(){
 
-        if (colorIsChosen()) tvColorError.setVisibility(View.GONE);
-        else tvColorError.setVisibility(View.VISIBLE);
+        if (colorIsChosen()) {
+            tvColorError.setVisibility(View.GONE);
+            colorExamPicker.setBackgroundColor(getResources().getColor(R.color.orange_300));
+            colorExamPicker.setTextColor(getResources().getColor(R.color.white));
+        }
+        else {
+            tvColorError.setVisibility(View.VISIBLE);
+            colorExamPicker.setBackgroundColor(getResources().getColor(R.color.grey_300));
+            colorExamPicker.setTextColor(getResources().getColor(R.color.grey_800));
+        }
     }
 
     private boolean colorIsChosen(){
@@ -398,5 +436,14 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         return this.colore != null;
     }
 
+    private void backAction(){
+
+        //L'utente vuole tornare indietro senza far nulla
+        Intent intent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
+        //non ho più bisogno della position
+        intent.putExtra(Login.USER_OBJ, userData);
+        intent.putExtra(Login.isSUMMARY, isSummary);
+        startActivity(intent);
+    }
 
 }

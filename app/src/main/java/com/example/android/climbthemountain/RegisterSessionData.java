@@ -52,21 +52,7 @@ public class RegisterSessionData extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-
-        Intent intent;
-
-        if (isSummary){
-
-            intent = new Intent(this, RegisterSessionSummary.class);
-
-        } else {
-
-            intent = new Intent(getApplicationContext(), RegisterAccountData.class);
-        }
-
-        intent.putExtra(Login.USER_OBJ, back_userData);
-
-        startActivity(intent);
+        backAction();
     }
 
 
@@ -100,6 +86,8 @@ public class RegisterSessionData extends AppCompatActivity{
 
         clearMessages();
         checkOnCreate();
+
+
 
 
 
@@ -171,24 +159,41 @@ public class RegisterSessionData extends AppCompatActivity{
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        flag = true;
 
-        if(controlExamsMoreThanOne() && controlHoursMoreThanOne()){
+        switch (item.getItemId()){
 
-            saveSessionData();
+            case (R.id.btBack):
+                backAction();
 
-        } else if(controlHoursMoreThanOne() && !controlExamsMoreThanOne()){
+                break;
 
-            setMessageExam();
+            case (R.id.btConfirm):
 
-        } else if(controlExamsMoreThanOne() && !controlHoursMoreThanOne()) {
+                flag = true;
 
-            setMessageHours();
-        }else{
+                if(controlExamsMoreThanOne() && controlHoursMoreThanOne()){
 
-            setMessageExam();
-            setMessageHours();
+                    saveSessionData();
+
+                } else if(controlHoursMoreThanOne() && !controlExamsMoreThanOne()){
+
+                    setMessageExam();
+
+                } else if(controlExamsMoreThanOne() && !controlHoursMoreThanOne()) {
+
+                    setMessageHours();
+                }else{
+
+                    setMessageExam();
+                    setMessageHours();
+                }
+                break;
+
         }
+
+
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -234,8 +239,8 @@ public class RegisterSessionData extends AppCompatActivity{
     private void setMessageExam(){
 
         tvErrorExams.setVisibility(View.VISIBLE);
-        btAddExams.setBackgroundColor(getResources().getColor(R.color.cyan_200));
-        btAddExams.setTextColor(getResources().getColor(R.color.cyan_900));
+        btAddExams.setBackgroundColor(getResources().getColor(R.color.orange_300));
+        btAddExams.setTextColor(getResources().getColor(R.color.white));
     }
 
     private void clearMessageExam(){
@@ -248,8 +253,8 @@ public class RegisterSessionData extends AppCompatActivity{
     private void setMessageHours(){
 
         tvErrorHours.setVisibility(View.VISIBLE);
-        btAddStudyHours.setBackgroundColor(getResources().getColor(R.color.cyan_200));
-        btAddStudyHours.setTextColor(getResources().getColor(R.color.cyan_900));
+        btAddStudyHours.setBackgroundColor(getResources().getColor(R.color.orange_300));
+        btAddStudyHours.setTextColor(getResources().getColor(R.color.white));
     }
 
     private void clearMessageHours(){
@@ -263,8 +268,8 @@ public class RegisterSessionData extends AppCompatActivity{
 
         tvErrorHours.setVisibility(View.GONE);
         tvErrorExams.setVisibility(View.GONE);
-        tvErrorExams.setTextColor(getResources().getColor(R.color.cyan_600));
-        tvErrorHours.setTextColor(getResources().getColor(R.color.cyan_600));
+        tvErrorExams.setTextColor(getResources().getColor(R.color.orange_700));
+        tvErrorHours.setTextColor(getResources().getColor(R.color.orange_700));
         btAddStudyHours.setBackgroundColor(getResources().getColor(R.color.grey_300));
         btAddExams.setBackgroundColor(getResources().getColor(R.color.grey_300));
         btAddStudyHours.setTextColor(getResources().getColor(R.color.grey_800));
@@ -288,4 +293,22 @@ public class RegisterSessionData extends AppCompatActivity{
         dpSessionStart.updateDate(mYear,mMonth,mDay);
     }
 
+    private void backAction(){
+
+
+        Intent intent;
+
+        if (isSummary){
+
+            intent = new Intent(this, RegisterSessionSummary.class);
+
+        } else {
+
+            intent = new Intent(getApplicationContext(), RegisterAccountData.class);
+        }
+
+        intent.putExtra(Login.USER_OBJ, back_userData);
+
+        startActivity(intent);
+    }
 }

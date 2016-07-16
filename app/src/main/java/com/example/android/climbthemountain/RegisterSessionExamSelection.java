@@ -42,19 +42,7 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        Intent intent;
-
-        if (isSummary){
-            intent = new Intent(this, RegisterSessionSummary.class);
-
-        }else {
-            intent = new Intent(this, RegisterSessionData.class);
-        }
-
-        intent.putExtra(Login.USER_OBJ, userData);
-        intent.putExtra(Login.isFROM_LIST, true);
-        startActivity(intent);
+        backAction();
 
 
     }
@@ -118,7 +106,21 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        saveExamData();
+
+        switch (item.getItemId()){
+
+            case (R.id.btBack):
+                backAction();
+
+                break;
+
+            case (R.id.btConfirm):
+                saveExamData();
+                break;
+
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -138,6 +140,24 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
 
         intent.putExtra(Login.isFROM_LIST, true);
         intent.putExtra(Login.USER_OBJ, userData);
+        startActivity(intent);
+
+    }
+
+    private void backAction(){
+
+
+        Intent intent;
+
+        if (isSummary){
+            intent = new Intent(this, RegisterSessionSummary.class);
+
+        }else {
+            intent = new Intent(this, RegisterSessionData.class);
+        }
+
+        intent.putExtra(Login.USER_OBJ, userData);
+        intent.putExtra(Login.isFROM_LIST, true);
         startActivity(intent);
 
     }
