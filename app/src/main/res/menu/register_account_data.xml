@@ -3,8 +3,19 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+
+        android:title="back"
+        android:id="@+id/btBack"
+        android:icon="@drawable/back_arrow_anydpi"
+        app:showAsAction="always"
+        />
+
+    <item
         android:id="@+id/btConfirm"
-        android:icon="@drawable/ic_action_name"
+        android:icon="@drawable/vector_drawable_ic_done_black___px"
         android:title="@string/bt_act_done"
         app:showAsAction="always"/>
+
+
+
 </menu>

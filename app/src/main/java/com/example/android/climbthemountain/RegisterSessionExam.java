@@ -103,7 +103,7 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
         // toolbar
         tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar);
-        setSupportActionBar(tbRegistration);
+        //setSupportActionBar(tbRegistration);
 
         // adding references
         tvCFU = (TextView) findViewById(R.id.tvSessionExam_cfu);

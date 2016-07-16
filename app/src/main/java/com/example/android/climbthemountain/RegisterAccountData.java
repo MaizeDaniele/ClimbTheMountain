@@ -103,7 +103,7 @@ public class RegisterAccountData extends AppCompatActivity {
 
         // toolbar registration
         tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
-        setSupportActionBar(tbRegistration);
+        //setSupportActionBar(tbRegistration);
 
         hintSetOnCreate();
 

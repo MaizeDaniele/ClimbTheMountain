@@ -19,9 +19,10 @@
     <ImageView
         android:id="@+id/ivLogin_Image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:paddingTop="10dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/icona"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/etLogin_username"

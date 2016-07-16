@@ -96,7 +96,7 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
         // toolbar
         tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar_Mod);
-        setSupportActionBar(tbRegistration);
+        //setSupportActionBar(tbRegistration);
 
         //Organizzo meglio con delle variabili
         esame = userData.userExams.get(position);
