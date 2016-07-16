@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,25 +32,47 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
     Button colorExamPicker;
     Button cancel;
     Button delete;
-    TextView colorPickerSelection;
-
 
     // toolbar
     Toolbar tbRegistration;
 
-    ExamData esame = new ExamData();
 
     //Colore scelto dall'utente
+    ExamData esame = new ExamData();
     String colore;
     int position;
-    boolean isSummary;
+
+    TextView colorPickerSelection;
+
+    TextView tvCFU;
+    TextView tvExamName;
+    TextView tvColorError;
 
     //CustomDialogFragment
     ColorPickerDialogFragment dialogFragment;
-
-    UserData userData = new UserData();
-
+    UserData userData;
     Intent intent;
+
+
+
+    // control for user input
+    boolean flag = false;
+    boolean control = false;
+
+    // variable to know where dispatch an intent to next Activity
+    boolean isSummary;
+
+
+    @Override
+    public void onBackPressed() {
+
+        //L'utente vuole tornare indietro senza far nulla
+        Intent intent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
+        //non ho più bisogno della position
+        intent.putExtra(Login.USER_OBJ, userData);
+        intent.putExtra(Login.isSUMMARY, isSummary);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +109,10 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         dpExamDate.updateDate(esame.getAnno(), esame.getMese(), esame.getGiorno());
 
 
+        // adding references
+        tvCFU = (TextView) findViewById(R.id.tvSessionExam_cfu_Mod);
+        tvExamName = (TextView) findViewById(R.id.tvSessionExam_examName_Mod);
+        tvColorError = (TextView) findViewById(R.id.tvSessionExam_errorColor_Mod);
 
         //Annulla la modifica dell'esame
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +151,44 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
             }
         });
 
+        etCfuMod.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                checkUserDetailMessage();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        etExamNameMod.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                checkUserDetailMessage();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        hintSetOnCreate();
     }
 
     //Implemento i metodi dell'interfaccia
@@ -154,33 +220,33 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
     // need to handle content returning to display inserted exams in the list view
     private void saveExamData() {
-        //l'utente ha confermato
+
+        flag = true;
+        setMessageColor();
+
+        if (isCFUaValidNumb() && !anyFieldEmpty() && colorIsChosen() ){
+
+            //recupero i dati e popolo l'oggetto esame da passare all'activity 03
+            esame.setNome(etExamNameMod.getText().toString());
+            esame.setCfu(Integer.parseInt(etCfuMod.getText().toString()));
+            esame.setGiorno(dpExamDate.getDayOfMonth());
+            esame.setMese(dpExamDate.getMonth());
+            esame.setAnno(dpExamDate.getYear());
+
+            //Aggiorno l'utente
+            userData.userExams.remove(position);
+            userData.userExams.add(position, esame);
+
+            //In mancanza di un controllo più approfondito
+            if(colore != null) {
+                esame.setColore(colore);
+            }
+            else {
+                esame.setColore("#000000");
+            }
 
 
-        //VERIFICA DELL'INPUT
-
-
-        //recupero i dati e popolo l'oggetto esame da passare all'activity 03
-        esame.setNome(etExamNameMod.getText().toString());
-        esame.setCfu(Integer.parseInt(etCfuMod.getText().toString()));
-        esame.setGiorno(dpExamDate.getDayOfMonth());
-        esame.setMese(dpExamDate.getMonth());
-        esame.setAnno(dpExamDate.getYear());
-
-        //Aggiorno l'utente
-        userData.userExams.remove(position);
-        userData.userExams.add(position, esame);
-
-        //In mancanza di un controllo più approfondito
-        if(colore != null) {
-            esame.setColore(colore);
-        }
-        else {
-            esame.setColore("#000000");
-        }
-
-
-        //HO RECUPERATO TUTTI I DATI MODIFICATI, LI CARICO SULL'UTENTE
+            //HO RECUPERATO TUTTI I DATI MODIFICATI, LI CARICO SULL'UTENTE
 
             Intent intent = new Intent(this, RegisterSessionExamSelection.class);
             //Carico l'utente sull'intent
@@ -188,13 +254,148 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
             intent.putExtra(Login.isSUMMARY, isSummary);
             startActivity(intent);
 
+        } else if (!etCfuMod.getText().toString().equals("") && !isCFUaValidNumb()){
+
+            setMessageColor();
+            controlValidCFU();
+        } else if(anyFieldEmpty()){
+
+            checkUserDetailMessage();
+        }
+
+    }
 
 
 
+    private void hintSetOnCreate() {
+
+        etExamNameMod.setHint(R.string.hint_general_exam_name);
+        etCfuMod.setHint(R.string.hint_general_exam_cfu);
+
+        etExamNameMod.setHintTextColor(getResources().getColor(R.color.grey_600));
+        etCfuMod.setHintTextColor(getResources().getColor(R.color.grey_600));
+
+        tvExamName.setHintTextColor(getResources().getColor(R.color.grey_900));
+        tvCFU.setHintTextColor(getResources().getColor(R.color.grey_900));
+
+        tvColorError.setVisibility(View.GONE);
+        tvColorError.setTextColor(getResources().getColor(R.color.cyan_600));
+    }
+
+
+    private boolean isCFUaValidNumb() {
+
+        try {
+
+            if (!etCfuMod.getText().toString().equals("")) {
+                int dummy = Integer.parseInt(etCfuMod.getText().toString());
+                return true;
+            } else {
+
+                return false;
+            }
+
+
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+    }
+
+    private boolean[] controllerFieldEmpty() {
+
+        boolean[] controller = new boolean[2];
+
+        controller[0] = etExamNameMod.getText().toString().equals("");
+        controller[1] = etCfuMod.getText().toString().equals("");
+
+        return controller;
+    }
+
+    private boolean anyFieldEmpty() {
+
+        boolean temp = false;
+
+        for (boolean bool : controllerFieldEmpty()) {
+            temp = bool || temp;
+        }
+
+        return temp;
+    }
+
+    private void checkUserDetailMessage() {
+
+
+        if (controllerFieldEmpty()[0] && flag) {
+
+            tvExamName.setTextColor(getResources().getColor(R.color.cyan_600));
+            etExamNameMod.setHintTextColor(getResources().getColor(R.color.cyan_300));
+
+            etExamNameMod.setHint(R.string.hint_error_examName_noName);
+
+        } else {
+
+            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+
+
+        }
+
+        if (controllerFieldEmpty()[1] && flag) {
+
+            if (!control) {
+
+                tvCFU.setTextColor(getResources().getColor(R.color.cyan_600));
+                etCfuMod.setHintTextColor(getResources().getColor(R.color.cyan_300));
+
+                etCfuMod.setHint(R.string.hint_error_examCfu_noCfu);
+
+            } else {
+
+                tvCFU.setTextColor(getResources().getColor(R.color.red_900));
+                etCfuMod.setHintTextColor(getResources().getColor(R.color.red_600));
+            }
+
+        } else {
+
+            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+
+        }
+
+
+        if (control && !etCfuMod.getText().toString().equals("")) {
+
+            control = false;
+
+        }
+
+    }
+
+    private void controlValidCFU() {
+
+        if (!isCFUaValidNumb() && !etCfuMod.getText().toString().equals("")) {
+
+            control = true;
+
+            tvCFU.setTextColor(getResources().getColor(R.color.red_900));
+            etCfuMod.setHintTextColor(getResources().getColor(R.color.red_600));
+
+            etCfuMod.setHint(R.string.hint_error_examCfu_noChar);
+
+            etCfuMod.setText("");
+        }
+    }
 
 
 
+    private void setMessageColor(){
 
+        if (colorIsChosen()) tvColorError.setVisibility(View.GONE);
+        else tvColorError.setVisibility(View.VISIBLE);
+    }
+
+    private boolean colorIsChosen(){
+
+        return this.colore != null;
     }
 
 

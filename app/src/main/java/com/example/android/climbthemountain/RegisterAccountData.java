@@ -39,13 +39,35 @@ public class RegisterAccountData extends AppCompatActivity {
     ArrayList<EditText> listEt = new ArrayList<>();
     ArrayList<TextView> listTv = new ArrayList<>();
 
-    boolean flag = false;
-
     // toolbar
     Toolbar tbRegistration;
 
     // variable to know where dispatch an intent to next Activity
     boolean isSummary;
+
+
+    boolean flag = false;
+    boolean match1 = false;
+    boolean match2 = false;
+
+    @Override
+    public void onBackPressed() {
+
+
+        Intent intent;
+
+        if (isSummary){
+
+            intent = new Intent(this, RegisterSessionSummary.class);
+            intent.putExtra(Login.USER_OBJ, accountData);
+
+        } else {
+
+            intent = new Intent(this, Login.class);
+        }
+
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +132,9 @@ public class RegisterAccountData extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    setUserMessage();
+                    checkUserDetailMessage();
                     realTimePasswordMatching();
+                    passwordEmptyMessage();
                 }
 
                 @Override
@@ -142,14 +165,20 @@ public class RegisterAccountData extends AppCompatActivity {
 
         flag = true;
 
+
         if(anyFieldEmpty()) {
-            setUserMessage();
+            checkUserDetailMessage();
             passwordUserMessage();
         }
         else {
-            if(passwordMatching() && !anyFieldEmpty()) saveRegisterData(isSummary); else passwordUserMessage();
-        }
 
+            if(passwordMatching() && !anyFieldEmpty()) saveRegisterData(isSummary);
+            else{
+                checkUserDetailMessage();
+                passwordUserMessage();
+
+            }
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -168,15 +197,14 @@ public class RegisterAccountData extends AppCompatActivity {
         if(toSummary){
             intent= new Intent(getApplicationContext(), RegisterSessionSummary.class);
             intent.putExtra(Login.USER_OBJ, accountData);
-
+            intent.putExtra(Login.getIsFROM_AD, true);
             startActivity(intent);
 
 
         } else {
             intent= new Intent(getApplicationContext(), RegisterSessionData.class);
             intent.putExtra(Login.USER_OBJ, accountData);
-            intent.putExtra("codice", "");
-
+            intent.putExtra("codice", ""); // non toccare
             startActivity(intent);
 
         }
@@ -189,16 +217,24 @@ public class RegisterAccountData extends AppCompatActivity {
 
         listEt.get(0).setText(accountData.getName());
         listEt.get(1).setText(accountData.getUsername());
-        listEt.get(2).setText(accountData.getUsername());
+        listEt.get(2).setText(accountData.getSurname());
         listEt.get(3).setText(accountData.getPassword());
         // it's supposed was previous checked if it matches
-        listEt.get(4).setText(accountData.getUsername());
+        listEt.get(4).setText(accountData.getPassword());
 
     }
 
+
     private boolean passwordMatching(){
 
-        return listEt.get(3).getText().toString().equals(listEt.get(4).getText().toString());
+        if(listEt.get(3).getText().toString().equals("") && listEt.get(4).getText().toString().equals("")){
+            return false;
+        } else{
+
+            return listEt.get(3).getText().toString().equals(listEt.get(4).getText().toString());
+        }
+
+
     }
 
     private boolean[] controllerFieldEmpty(){
@@ -225,28 +261,69 @@ public class RegisterAccountData extends AppCompatActivity {
         return !temp;
     }
 
-    private boolean passwordUserMessage(){
+    private void passwordUserMessage() {
 
-        if(passwordMatching()){
-            return true;
-        } else {
+
+        if(passwordMatching() && !passwordBothEmpty() && !flag ){
+
+            listEt.get(3).setHint(R.string.hint_general_password);
+            listEt.get(4).setHint(R.string.hint_general_password_rep);
+
+        } else if(passwordBothEmpty() && flag){
+
+            listEt.get(3).setHint(R.string.hint_error_password);
+            listEt.get(4).setHint(R.string.hint_error_password_rep_match);
+
+
+        } else if(!passwordMatching()){
+
+            match1 = true;
+            match2 = true;
+
+            listEt.get(3).setText("");
+            listEt.get(4).setText("");
 
             listEt.get(3).setHint(R.string.hint_error_password_rep);
             listEt.get(4).setHint(R.string.hint_error_password_rep);
-            listEt.get(3).setText("");
-            listEt.get(4).setText("");
-            listEt.get(3).setHintTextColor(getResources().getColor(R.color.red_900));
-            listEt.get(4).setHintTextColor(getResources().getColor(R.color.red_900));
-            listTv.get(3).setTextColor(getResources().getColor(R.color.red_400));
-            listTv.get(4).setTextColor(getResources().getColor(R.color.red_400));
 
-            return false;
+        } else {
+
+            listEt.get(3).setHint(R.string.hint_general_password);
+            listEt.get(4).setHint(R.string.hint_general_password_rep);
         }
 
     }
 
+    private void passwordEmptyMessage(){
 
-    private void setUserMessage(){
+
+        if(match1 || match2){
+
+            if (!listEt.get(3).getText().toString().equals("") || !listEt.get(4).getText().toString().equals("")){
+
+                if (!listEt.get(3).getText().toString().equals("")){
+                    listEt.get(3).setHint(R.string.hint_error_password);
+                    match1 = false;
+                }
+
+                if(!listEt.get(4).getText().toString().equals("")){
+                    listEt.get(4).setHint(R.string.hint_error_password_rep_match);
+                    match2 = false;
+                }
+
+            }
+        }
+
+    }
+
+    public boolean passwordBothEmpty(){
+
+        if(listEt.get(3).getText().toString().equals("") && listEt.get(4).getText().toString().equals("")) return  true;
+        else return false;
+
+    }
+
+    private void checkUserDetailMessage(){
 
         for(int i = 0; i < 5; i++){
 
@@ -265,12 +342,7 @@ public class RegisterAccountData extends AppCompatActivity {
                     case 2:
                         listEt.get(i).setHint(R.string.hint_error_username);
                         break;
-                    case 3:
-                        listEt.get(i).setHint(R.string.hint_error_password);
-                        break;
-                    case 4:
-                        listEt.get(i).setHint(R.string.hint_error_password_rep_match);
-                        break;
+
                 }
 
             } else {
@@ -288,12 +360,7 @@ public class RegisterAccountData extends AppCompatActivity {
                     case 2:
                         listEt.get(i).setHint(R.string.hint_general_username);
                         break;
-                    case 3:
-                        listEt.get(i).setHint(R.string.hint_general_password);
-                        break;
-                    case 4:
-                        listEt.get(i).setHint(R.string.hint_general_password_rep);
-                        break;
+
                 }
             }
         }
@@ -311,7 +378,6 @@ public class RegisterAccountData extends AppCompatActivity {
                 listTv.get(3).setTextColor(getResources().getColor(R.color.grey_900));
                 listTv.get(4).setTextColor(getResources().getColor(R.color.grey_900));
             }
-
 
         } else if (passwordMatching()) {
 
@@ -351,9 +417,6 @@ public class RegisterAccountData extends AppCompatActivity {
                     break;
             }
         }
-
-
-
     }
 
 }

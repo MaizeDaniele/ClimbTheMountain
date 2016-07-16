@@ -7,20 +7,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.android.climbthemountain.CustomAdapter.ExamAdapter;
 import com.example.android.climbthemountain.CustomCalendar.BaseWeekDay;
 import com.example.android.climbthemountain.CustomCalendar.Monday;
-import com.example.android.climbthemountain.user_data.ExamData;
 import com.example.android.climbthemountain.user_data.UserData;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 
 public class RegisterSessionData extends AppCompatActivity{
 
@@ -29,7 +25,10 @@ public class RegisterSessionData extends AppCompatActivity{
     DatePicker dpSessionStart;
     Button btAddStudyHours;
     Button btAddExams;
-    TextView tvAddExams;
+
+
+    TextView tvErrorHours;
+    TextView tvErrorExams;
 
     //Eventuale intent proveniente da activity
     Intent intent;
@@ -39,7 +38,36 @@ public class RegisterSessionData extends AppCompatActivity{
 
     // NOTE: no use to have a variable handling dispatching towards Summary if it's the default action
 
-    UserData accountData = new UserData();
+    UserData userData = new UserData();
+
+    boolean isSummary;
+    boolean isFromList;
+
+    // control field for inputErrors
+    boolean flag = false;
+    boolean fromCalendar = false;
+    boolean fromExams = false;
+
+    UserData back_userData;
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent;
+
+        if (isSummary){
+
+            intent = new Intent(this, RegisterSessionSummary.class);
+
+        } else {
+
+            intent = new Intent(getApplicationContext(), RegisterAccountData.class);
+        }
+
+        intent.putExtra(Login.USER_OBJ, back_userData);
+
+        startActivity(intent);
+    }
 
 
     @Override
@@ -49,28 +77,36 @@ public class RegisterSessionData extends AppCompatActivity{
 
         intent = getIntent();
         //Recupero i dati dall'intent
-        accountData = intent.getParcelableExtra(Login.USER_OBJ);
-        String codice = intent.getStringExtra("codice");
+        userData = intent.getParcelableExtra(Login.USER_OBJ);
+        isFromList = intent.getBooleanExtra(Login.isFROM_LIST, false);
+        isSummary = intent.getBooleanExtra(Login.isSUMMARY, false);
 
-
-
+        back_userData = userData;
 
         // element instance
         dpSessionStart = (DatePicker) findViewById(R.id.dpSession_date);
         btAddStudyHours = (Button) findViewById(R.id.btSession_addStudyHours);
-        tvAddExams = (TextView) findViewById(R.id.tvSession_ErrorExams);
         btAddExams = (Button) findViewById(R.id.btSession_addExam);
 
+        // for show errors
+        tvErrorExams = (TextView) findViewById(R.id.tvSession_ErrorExams);
+        tvErrorHours = (TextView) findViewById(R.id.tvSession_ErrorHours);
 
         //Inizialzzo i componenti con i dati dell'utente
+
+
+        setDatePicker();
         fillUserData();
+
+        clearMessages();
+        checkOnCreate();
+
 
 
         //Verifico che l'utente abbia aggiunto esami
-        if(codice.equals("visualizzaLista")){
+        if(isFromList || isSummary){
             //L'utente ha già aggiunto almeno un esame, modifico il bottone
             btAddExams.setText("Lista Esami");
-            tvAddExams.setVisibility(View.GONE);
 
             btAddExams.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,7 +114,7 @@ public class RegisterSessionData extends AppCompatActivity{
                     Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
 
                     //Passo l'utente
-                    nextIntent.putExtra(Login.USER_OBJ, accountData);
+                    nextIntent.putExtra(Login.USER_OBJ, userData);
 
                     startActivity(nextIntent);
                 }
@@ -86,7 +122,6 @@ public class RegisterSessionData extends AppCompatActivity{
 
         }else{
             btAddExams.setText("Add Exam");
-            tvAddExams.setVisibility(View.VISIBLE);
 
             btAddExams.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -95,7 +130,7 @@ public class RegisterSessionData extends AppCompatActivity{
                     Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExam.class);
 
                     //Carico l'utente nell'intent
-                    nextIntent.putExtra(Login.USER_OBJ, accountData);
+                    nextIntent.putExtra(Login.USER_OBJ, userData);
 
                     startActivity(nextIntent);
 
@@ -114,7 +149,7 @@ public class RegisterSessionData extends AppCompatActivity{
 
                 Intent nextIntent = new Intent(getApplicationContext(), Monday.class);
                 registerDate();
-                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.USER_OBJ, userData);
 
                 startActivity(nextIntent);
 
@@ -136,7 +171,24 @@ public class RegisterSessionData extends AppCompatActivity{
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        saveSessionData();
+        flag = true;
+
+        if(controlExamsMoreThanOne() && controlHoursMoreThanOne()){
+
+            saveSessionData();
+
+        } else if(controlHoursMoreThanOne() && !controlExamsMoreThanOne()){
+
+            setMessageExam();
+
+        } else if(controlExamsMoreThanOne() && !controlHoursMoreThanOne()) {
+
+            setMessageHours();
+        }else{
+
+            setMessageExam();
+            setMessageHours();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -150,7 +202,7 @@ public class RegisterSessionData extends AppCompatActivity{
 
         Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionSummary.class);
         registerDate();
-        nextIntent.putExtra(Login.USER_OBJ, accountData);
+        nextIntent.putExtra(Login.USER_OBJ, userData);
 
         startActivity(nextIntent);
     }
@@ -158,19 +210,82 @@ public class RegisterSessionData extends AppCompatActivity{
 
     // method to insert previous values in OnCreate
     private void fillUserData(){
-        dpSessionStart.updateDate(accountData.getSession_year(),
-                accountData.getSession_month(), accountData.getSession_day());
+        dpSessionStart.updateDate(userData.getSession_year(),
+                userData.getSession_month(), userData.getSession_day());
 
     }
 
     private void registerDate(){
-        accountData.setSession_day(dpSessionStart.getDayOfMonth());
-        accountData.setSession_month(dpSessionStart.getMonth());
-        accountData.setSession_year(dpSessionStart.getYear());
+        userData.setSession_day(dpSessionStart.getDayOfMonth());
+        userData.setSession_month(dpSessionStart.getMonth());
+        userData.setSession_year(dpSessionStart.getYear());
     }
 
+    private boolean controlHoursMoreThanOne(){
+        return BaseWeekDay.countHours(userData.userSelectedHours) > 0;
+
+    }
+
+    private boolean controlExamsMoreThanOne(){
+
+        return userData.userExams.size() > 0;
+    }
+
+    private void setMessageExam(){
+
+        tvErrorExams.setVisibility(View.VISIBLE);
+        btAddExams.setBackgroundColor(getResources().getColor(R.color.cyan_200));
+        btAddExams.setTextColor(getResources().getColor(R.color.cyan_900));
+    }
+
+    private void clearMessageExam(){
+
+        tvErrorHours.setVisibility(View.GONE);
+        btAddExams.setBackgroundColor(getResources().getColor(R.color.grey_300));
+        btAddExams.setTextColor(getResources().getColor(R.color.grey_800));
+    }
+
+    private void setMessageHours(){
+
+        tvErrorHours.setVisibility(View.VISIBLE);
+        btAddStudyHours.setBackgroundColor(getResources().getColor(R.color.cyan_200));
+        btAddStudyHours.setTextColor(getResources().getColor(R.color.cyan_900));
+    }
+
+    private void clearMessageHours(){
+
+        tvErrorHours.setVisibility(View.GONE);
+        btAddStudyHours.setBackgroundColor(getResources().getColor(R.color.grey_300));
+        btAddStudyHours.setTextColor(getResources().getColor(R.color.grey_800));
+    }
+
+    private void clearMessages(){
+
+        tvErrorHours.setVisibility(View.GONE);
+        tvErrorExams.setVisibility(View.GONE);
+        tvErrorExams.setTextColor(getResources().getColor(R.color.cyan_600));
+        tvErrorHours.setTextColor(getResources().getColor(R.color.cyan_600));
+        btAddStudyHours.setBackgroundColor(getResources().getColor(R.color.grey_300));
+        btAddExams.setBackgroundColor(getResources().getColor(R.color.grey_300));
+        btAddStudyHours.setTextColor(getResources().getColor(R.color.grey_800));
+        btAddExams.setTextColor(getResources().getColor(R.color.grey_800));
+
+
+    }
+
+    private void checkOnCreate(){
+        if (!controlHoursMoreThanOne() && (flag || fromCalendar)) setMessageHours();
+        if (!controlExamsMoreThanOne() && (flag || fromExams)) setMessageExam();
+    }
+
+    private void setDatePicker(){
+
+        Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        dpSessionStart.updateDate(mYear,mMonth,mDay);
+    }
 
 }
-
-
-

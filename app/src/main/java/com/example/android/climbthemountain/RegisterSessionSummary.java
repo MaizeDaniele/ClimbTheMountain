@@ -13,14 +13,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.android.climbthemountain.CustomAdapter.ExamAdapter;
 import com.example.android.climbthemountain.CustomAdapter.ExamAdapter1;
 import com.example.android.climbthemountain.CustomCalendar.BaseWeekDay;
-import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.DailyHours;
 import com.example.android.climbthemountain.CustomCalendar.Monday;
 import com.example.android.climbthemountain.user_data.UserData;
-
-import org.w3c.dom.Text;
 
 public class RegisterSessionSummary extends AppCompatActivity{
 
@@ -41,8 +37,34 @@ public class RegisterSessionSummary extends AppCompatActivity{
     // toolbar
     Toolbar tbRegistration;
 
-    UserData accountData = new UserData();
+    UserData userData = new UserData();
 
+    boolean isFromList;
+    boolean isFromAccount;
+
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent;
+
+        if (isFromList){
+
+            intent = new Intent(this, RegisterSessionExamSelection.class);
+        } else if (isFromAccount){
+
+            intent = new Intent(this, RegisterAccountData.class);
+        } else {
+
+            intent = new Intent(this, RegisterSessionData.class);
+        }
+
+        intent.putExtra(Login.USER_OBJ, userData);
+        intent.putExtra(Login.isSUMMARY, true);
+        startActivity(intent);
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +93,8 @@ public class RegisterSessionSummary extends AppCompatActivity{
 
         if(intent != null){
             if (intent.getParcelableExtra(Login.USER_OBJ) != null) {
-                accountData = intent.getParcelableExtra(Login.USER_OBJ);
+                userData = intent.getParcelableExtra(Login.USER_OBJ);
+                isFromList = intent.getBooleanExtra(Login.isFROM_LIST, false);
             }
         }
 
@@ -83,7 +106,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
             public void onClick(View v) {
 
                 Intent nextIntent = new Intent(getApplicationContext(), RegisterAccountData.class);
-                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.USER_OBJ, userData);
                 nextIntent.putExtra(Login.isSUMMARY, true);
                 startActivity(nextIntent);
 
@@ -95,7 +118,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
             public void onClick(View v) {
 
                 Intent nextIntent = new Intent(getApplicationContext(), Monday.class);
-                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.USER_OBJ, userData);
                 nextIntent.putExtra(Login.isSUMMARY, true);
                 startActivity(nextIntent);
 
@@ -107,7 +130,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
             public void onClick(View v) {
 
                 Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
-                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.USER_OBJ, userData);
                 nextIntent.putExtra(Login.isSUMMARY, true);
                 nextIntent.putExtra("codice", "visualizzaLista");
                 startActivity(nextIntent);
@@ -119,7 +142,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
-                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.USER_OBJ, userData);
                 nextIntent.putExtra(Login.isSUMMARY, true);
                 startActivity(nextIntent);
             }
@@ -151,22 +174,22 @@ public class RegisterSessionSummary extends AppCompatActivity{
 
     private void fillContent(){
 
-        tvName.setText(accountData.getName());
-        tvSurname.setText(accountData.getSurname());
-        tvUsername.setText(accountData.getUsername());
-        tvSessionstart.setText(String.format("%d %d %d", accountData.getSession_day(),
-                accountData.getSession_month(), accountData.getSession_year()));
-        tvWeeklyHour.setText(String.valueOf( BaseWeekDay.countHours(accountData.userSelectedHours)));
+        tvName.setText(userData.getName());
+        tvSurname.setText(userData.getSurname());
+        tvUsername.setText(userData.getUsername());
+        tvSessionstart.setText(String.format("%d %d %d", userData.getSession_day(),
+                userData.getSession_month(), userData.getSession_year()));
+        tvWeeklyHour.setText(String.valueOf( BaseWeekDay.countHours(userData.userSelectedHours)));
 
         listView = (ListView) findViewById(R.id.lvSessionSum_list);
         //Sono nel summary, il tasto modifica delle view si comporta in maniera diversa
-        adattatore1 = new ExamAdapter1(accountData, this, true);
+        adattatore1 = new ExamAdapter1(userData, this, true);
         impostaListView(listView, adattatore1);
 
     }
 
     private void impostaListView(ListView listView, ExamAdapter1 adattatore){
-        int numeroEsami = accountData.userExams.size();
+        int numeroEsami = userData.userExams.size();
         ViewGroup.LayoutParams p = listView.getLayoutParams();
         p.height = numeroEsami * 450;
         listView.setLayoutParams(p);

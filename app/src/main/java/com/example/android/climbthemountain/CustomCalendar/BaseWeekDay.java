@@ -59,10 +59,19 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
     ArrayList<TextView> hoursTextViews = new ArrayList<>();
 
-    boolean isSummary;
+
     UserData accountData;
+    UserData back_accountData;
 
+    @Override
+    public void onBackPressed() {
 
+        Intent intent = new Intent(this, RegisterSessionData.class);
+        intent.putExtra(Login.USER_OBJ, back_accountData);
+
+        startActivity(intent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +85,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
                 // possible javaNullException
                 accountData = intent.getParcelableExtra(Login.USER_OBJ);
-
-                // need to control if we come from a summary
-                isSummary = intent.getBooleanExtra(Login.isSUMMARY, false);
-
+                back_accountData = accountData;
             }
         }
 
@@ -265,7 +271,6 @@ public abstract class BaseWeekDay extends AppCompatActivity {
         tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
         setSupportActionBar(tbRegistration);
 
-
     }
 
 
@@ -289,31 +294,15 @@ public abstract class BaseWeekDay extends AppCompatActivity {
     }
 
 
-
     // method to save user details
-    private void saveSelectedWeekHours(){
+    private void saveSelectedWeekHours() {
 
         // we have to dispatch the next activity
+        Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
+        nextIntent.putExtra(Login.USER_OBJ, accountData);
 
-        if(isSummary){
+        startActivity(nextIntent);
 
-
-            Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionSummary.class);
-            nextIntent.putExtra(Login.USER_OBJ, accountData);
-
-            startActivity(nextIntent);
-
-
-        } else {
-
-
-            Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
-            nextIntent.putExtra(Login.USER_OBJ, accountData);
-            nextIntent.putExtra("codice", "");
-
-            startActivity(nextIntent);
-
-        }
 
     }
 

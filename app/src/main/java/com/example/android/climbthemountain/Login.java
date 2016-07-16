@@ -13,7 +13,8 @@ public class Login extends AppCompatActivity {
 
     static final public String USER_OBJ= "com.example.Intent.USER";
     static final public String isSUMMARY = "com.example.Intent.SUMMARY_VALUE";
-
+    static final public String isFROM_LIST = "com.example.Intent.isFROM_LIST";
+    static final public String getIsFROM_AD = "com.example.Intent.isFROM_AD";
 
     // elements
     Button btLogin;

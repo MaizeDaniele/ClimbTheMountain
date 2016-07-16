@@ -42,7 +42,6 @@
     <string name="activity_custom_calendar">Hours Selector</string>
 
     // hints string
-
     <string name="hint_error_name">Please, enter your name here!</string>
     <string name="hint_error_surname">Please, enter your surname here!</string>
     <string name="hint_error_username">Please, enter a surname!</string>
@@ -59,8 +58,14 @@
     <string name="error_insert_hours">Configure your hour weekly plan!</string>
     <string name="error_insert_exams">Add at least one exam!</string>
 
+    <string name="hint_general_exam_name">Add a name for the exam</string>
+    <string name="hint_general_exam_cfu">Add a number for CFU related with</string>
 
+    <string name="hint_error_examCfu_noChar">Please insert a valid number!</string>
+    <string name="hint_error_examName_noName">Please insert a name for the exam!</string>
+    <string name="hint_error_examCfu_noCfu">Please insert a number for CFU!</string>
 
+    <string name="text_error_color">Choose a color for the exam!</string>
 
 
     // customCalendar

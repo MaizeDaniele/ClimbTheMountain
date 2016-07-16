@@ -29,7 +29,6 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
     Toolbar tbRegistration;
 
 
-
     //Adattatore per la visualizzazione della listView
     ExamAdapter adattatore;
 
@@ -38,6 +37,27 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
     UserData userData = new UserData();
     boolean isSummary;
 
+
+    UserData back_userData;
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent;
+
+        if (isSummary){
+            intent = new Intent(this, RegisterSessionSummary.class);
+
+        }else {
+            intent = new Intent(this, RegisterSessionData.class);
+        }
+
+        intent.putExtra(Login.USER_OBJ, userData);
+        intent.putExtra(Login.isFROM_LIST, true);
+        startActivity(intent);
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +69,10 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
         userData = intent.getParcelableExtra(Login.USER_OBJ);
         isSummary = intent.getBooleanExtra(Login.isSUMMARY, false);
 
-
         lv_ExamsList = (ListView) findViewById(R.id.lvSession_list);
 
+
+        back_userData = userData;
 
         // toolbar registration
         tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
@@ -65,6 +86,7 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
                 //Passa all'activity per l'aggiunta esame
                 Intent intent = new Intent(v.getContext(), RegisterSessionExam.class);
 
+                intent.putExtra(Login.isFROM_LIST, true);
                 //Passo anche l'utente così posso aggiungere direttamente un esame
                 intent.putExtra(Login.USER_OBJ, userData);
                 if(isSummary){
@@ -108,12 +130,13 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
         //l'utente ha confermato
         if(isSummary) {
             intent = new Intent(this, RegisterSessionSummary.class);
+
         }
         else {
             intent = new Intent(this, RegisterSessionData.class);
-            intent.putExtra("codice", "visualizzaLista");
         }
 
+        intent.putExtra(Login.isFROM_LIST, true);
         intent.putExtra(Login.USER_OBJ, userData);
         startActivity(intent);
 
@@ -121,6 +144,3 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
 
 
 }
-
-
-
