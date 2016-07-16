@@ -8,6 +8,7 @@
         android:id="@+id/btBack"
         android:icon="@drawable/back_arrow_anydpi"
         app:showAsAction="always"
+
         />
 
     <item

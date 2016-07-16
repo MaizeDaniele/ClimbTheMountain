@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.android.climbthemountain.Login;
@@ -31,7 +33,7 @@ public class ExamAdapter extends BaseAdapter {
     private ArrayList<ExamData> listaEsami;
     private Context context;
     private ExamData esame;
-    private int position;
+
     private UserData userData;
     private boolean isSummary;
 
@@ -86,7 +88,7 @@ public class ExamAdapter extends BaseAdapter {
         //Imposto l'evento OnClick del bottone
         //Avvierà l'activity RegisterSessionExamModify in cui sarà possibile anche rimuovere l'esame oltre a modificarlo
 
-        Button bottone = (Button) v.findViewById(R.id.modifica_Button);
+        ImageButton bottone = (ImageButton) v.findViewById(R.id.modifica_Button);
 
 
 

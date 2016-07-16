@@ -54,11 +54,13 @@
         />
 
 
-    <Button
+    <ImageButton
+        android:layout_margin="8dp"
         android:id="@+id/modifica_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modifica"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/vector_drawable_ic_create_black___px"
+        android:background="#FFFFFF"
         android:layout_alignParentRight="true"
         />
 

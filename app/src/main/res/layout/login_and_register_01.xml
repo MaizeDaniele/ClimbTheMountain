@@ -5,17 +5,6 @@
     android:orientation="vertical">
 
 
-    <!-- hide actionBar -->
-    <!--
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:paddingBottom="20dp" />
-        -->
-
-    <!--Suggest to insert app's image -->
-
     <ImageView
         android:id="@+id/ivLogin_Image"
         android:layout_width="match_parent"

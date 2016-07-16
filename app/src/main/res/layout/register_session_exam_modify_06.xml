@@ -6,19 +6,10 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tbSessionExam_toolbar_Mod"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:paddingBottom="20dp" />
-
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,7 +100,8 @@
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_toRightOf="@id/tvSessionExam_color_Mod"
-                    android:background="#000000"/>
+                    />
+
             </RelativeLayout>
 
 
