@@ -65,14 +65,28 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp" />
 
-
-            <TextView
-                android:id="@+id/tvReg_pass"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/password_Up"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvReg_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/password_Up"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_marginLeft="224dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vector_drawable_ic_warning_black___px"
+                    android:id="@+id/image_warningPass01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
 
             <EditText
                 android:id="@+id/etReg_pass"
@@ -81,14 +95,28 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp" />
 
-
-            <TextView
-                android:id="@+id/tvReg_passRep"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/repeat_pass"
-                android:textSize="16sp" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvReg_passRep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/repeat_pass"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_marginLeft="170dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/vector_drawable_ic_warning_black___px"
+                    android:id="@+id/image_warningPass02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
 
             <EditText
                 android:id="@+id/etReg_passRep"

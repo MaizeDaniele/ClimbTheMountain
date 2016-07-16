@@ -6,12 +6,7 @@
     android:orientation="vertical">
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tbSessionExam_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:paddingBottom="20dp" />
+
 
 
     <ScrollView
