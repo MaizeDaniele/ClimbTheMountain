@@ -1,72 +1,72 @@
 <resources>
     <string name="app_name">ClimbTheMountain</string>
-    <string name="username">Username</string>
+    <string name="username">Nome Utente</string>
     <string name="password_low">password</string>
     <string name="log_button">LOGIN</string>
-    <string name="new_user">New User</string>
-    <string name="name">Name</string>
-    <string name="surname">Surname</string>
+    <string name="new_user">Nuovo Utente</string>
+    <string name="name">Nome</string>
+    <string name="surname">Cognome</string>
     <string name="password_Up">Password</string>
-    <string name="repeat_pass">Repeat Password</string>
-    <string name="session_start">Session Start</string>
-    <string name="week_hours">Weekly Studies\' Hours</string>
-    <string name="exams">Exams</string>
-    <string name="exams_name">Exam\'s Name</string>
+    <string name="repeat_pass">Ripeti Password</string>
+    <string name="session_start">Inizio Sessione</string>
+    <string name="week_hours">Ore Studio Settimanali</string>
+    <string name="exams">Esami</string>
+    <string name="exams_name">Nome Esame</string>
     <string name="cfu">CFU</string>
-    <string name="exam_dead">Exam\'s Deadline</string>
-    <string name="exam_color">Exam Associate Color</string>
-    <string name="name_display"> Name :</string>
-    <string name="surname_display">Surname :</string>
+    <string name="exam_dead">Data Esame</string>
+    <string name="exam_color">Colore Esame</string>
+    <string name="name_display"> Nome :</string>
+    <string name="surname_display">Cognome :</string>
     <string name="username_display">Username :</string>
-    <string name="session_display">Session starts : </string>
-    <string name="hours_display">Weekly Hours :</string>
-    <string name="delete">Delete</string>
-    <string name="tvAddExams">Exams</string>
-    <string name="tvListSum">Exams List:</string>
+    <string name="session_display">Inizio Sessione : </string>
+    <string name="hours_display">Ore settimanali di studio :</string>
+    <string name="delete">Elimina</string>
+    <string name="tvAddExams">Esame</string>
+    <string name="tvListSum">Lista  Esami:</string>
     <string name="colorPickerDialog">Seleziona un colore:</string>
 
 
     // buttons' name
-    <string name="bt_act_done">Done</string>
-    <string name="bt_mod">Modify</string>
-    <string name="bt_add_hours">Add Study Hours</string>
-    <string name="bt_add_exam">Add Exam</string>
-    <string name="bt_pck_color">Select Color</string>
-    <string name="bt_cancel">Cancel</string>
+    <string name="bt_act_done">Completato</string>
+    <string name="bt_mod">Modifica</string>
+    <string name="bt_add_hours">Aggiungi ore studio settimanali</string>
+    <string name="bt_add_exam">Aggiungi Esame</string>
+    <string name="bt_pck_color">Seleziona Colore</string>
+    <string name="bt_cancel">Annulla</string>
 
     // activity's name
-    <string name="activity_register">Registration</string>
-    <string name="activity_session">Session Setup</string>
-    <string name="activity_exams">Exam Setup</string>
-    <string name="activity_summary">Summary</string>
+    <string name="activity_register">Registrazione</string>
+    <string name="activity_session">Personalizzazione Sessione</string>
+    <string name="activity_exams">Personalizzazione Esame</string>
+    <string name="activity_summary">Sommario</string>
     <string name="activity_login">Login</string>
-    <string name="activity_custom_calendar">Hours Selector</string>
+    <string name="activity_custom_calendar">Ore Selezionate</string>
 
     // hints string
-    <string name="hint_error_name">Please, enter your name here!</string>
-    <string name="hint_error_surname">Please, enter your surname here!</string>
-    <string name="hint_error_username">Please, enter a surname!</string>
-    <string name="hint_error_password">Please enter a password!</string>
-    <string name="hint_error_password_rep">Password must match!</string>
-    <string name="hint_error_password_rep_match">Repeat the password here!</string>
+    <string name="hint_error_name">Perfavore, inserisci il tuo nome qui!</string>
+    <string name="hint_error_surname">Perfavore, inserisci il tuo cognome qui!</string>
+    <string name="hint_error_username">Perfavore, inserisci il tuo cognome qui!</string>
+    <string name="hint_error_password">Perfavore inserisci una password!</string>
+    <string name="hint_error_password_rep">Le password devono corrispondere!</string>
+    <string name="hint_error_password_rep_match">Ripeti la tua password qui!</string>
 
-    <string name="hint_general_name">Insert your name here</string>
-    <string name="hint_general_surname">Insert your surname here</string>
-    <string name="hint_general_username">Chose a username</string>
-    <string name="hint_general_password">Insert a strong password</string>
-    <string name="hint_general_password_rep">Repeat your password</string>
+    <string name="hint_general_name">Inserisci il tuo nome</string>
+    <string name="hint_general_surname">Inserisci il tuo cognome</string>
+    <string name="hint_general_username">Inserisci un username</string>
+    <string name="hint_general_password">Inserisci una password</string>
+    <string name="hint_general_password_rep">Ripeti la password</string>
 
-    <string name="error_insert_hours">Configure your hour weekly plan!</string>
-    <string name="error_insert_exams">Add at least one exam!</string>
+    <string name="error_insert_hours">Imposta il tuo piano delle ore settimanali!</string>
+    <string name="error_insert_exams">Aggiungi almeno un esame!</string>
 
-    <string name="hint_general_exam_name">Add a name for the exam</string>
-    <string name="hint_general_exam_cfu">Add a number for CFU related with</string>
+    <string name="hint_general_exam_name">Aggiungi un nome per il tuo esame</string>
+    <string name="hint_general_exam_cfu">Aggiungi i CFU correlati</string>
 
-    <string name="hint_error_examCfu_noChar">Please insert a valid number!</string>
-    <string name="hint_error_examName_noName">Please insert a name for the exam!</string>
-    <string name="hint_error_examCfu_noCfu">Please insert a number for CFU!</string>
+    <string name="hint_error_examCfu_noChar">Perfavore, inserisci un numero valido!</string>
+    <string name="hint_error_examName_noName">Perfavore, inserisci un nome per l\'esame!!</string>
+    <string name="hint_error_examCfu_noCfu">Perfavore, inserisci un numero di CFU!</string>
 
-    <string name="text_error_color">Choose a color for the exam!</string>
+    <string name="text_error_color">Perfavore, scegli un colore per l\'esame!</string>
 
 
     // customCalendar
