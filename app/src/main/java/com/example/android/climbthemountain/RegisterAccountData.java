@@ -50,6 +50,7 @@ public class RegisterAccountData extends AppCompatActivity {
     boolean match1 = false;
     boolean match2 = false;
 
+
     @Override
     public void onBackPressed() {
 
@@ -122,7 +123,9 @@ public class RegisterAccountData extends AppCompatActivity {
         }
 
 
-        for(EditText editText : listEt){
+        for(final EditText editText : listEt){
+
+            int i = 0;
 
             editText.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -142,9 +145,21 @@ public class RegisterAccountData extends AppCompatActivity {
 
                 }
             });
-
         }
 
+
+        for (int i = 0; i < 5; i++){
+
+
+            listEt.get(i).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+
+                    if(hasFocus) listTv.get(listEt.indexOf(v)).setTextColor(getResources().getColor(R.color.purple_400));
+                    else listTv.get(listEt.indexOf(v)).setTextColor(getResources().getColor(R.color.grey_900));
+                }
+            });
+        }
 
 
     }
@@ -329,8 +344,8 @@ public class RegisterAccountData extends AppCompatActivity {
 
             if(!controllerFieldEmpty()[i] && flag){
 
-                listTv.get(i).setTextColor(getResources().getColor(R.color.cyan_600));
-                listEt.get(i).setHintTextColor(getResources().getColor(R.color.cyan_300));
+                listTv.get(i).setTextColor(getResources().getColor(R.color.grey_800));
+                listEt.get(i).setHintTextColor(getResources().getColor(R.color.orange_700));
 
                 switch (i) {
                     case 0:
@@ -371,8 +386,8 @@ public class RegisterAccountData extends AppCompatActivity {
         if (listEt.get(3).getText().toString().equals("") || listEt.get(4).toString().equals("")) {
 
             if(flag){
-                listTv.get(3).setTextColor(getResources().getColor(R.color.cyan_600));
-                listTv.get(4).setTextColor(getResources().getColor(R.color.cyan_600));
+                listTv.get(3).setTextColor(getResources().getColor(R.color.grey_900));
+                listTv.get(4).setTextColor(getResources().getColor(R.color.orange_700));
 
             } else {
                 listTv.get(3).setTextColor(getResources().getColor(R.color.grey_900));
