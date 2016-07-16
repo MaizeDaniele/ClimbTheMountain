@@ -2,8 +2,8 @@ package com.example.android.climbthemountain.CustomAdapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +14,15 @@ import android.widget.TextView;
 import com.example.android.climbthemountain.Login;
 import com.example.android.climbthemountain.R;
 import com.example.android.climbthemountain.RegisterSessionExamModify;
-import com.example.android.climbthemountain.RegisterSessionExamSelection;
 import com.example.android.climbthemountain.user_data.ExamData;
 import com.example.android.climbthemountain.user_data.UserData;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * Created by maizedaniele on 13/07/16.
  */
-public class ExamAdapter extends BaseAdapter {
+public class ExamAdapter1 extends BaseAdapter {
 
     private ArrayList<ExamData> listaEsami;
     private Context context;
@@ -35,7 +31,7 @@ public class ExamAdapter extends BaseAdapter {
     private UserData userData;
     private boolean isSummary;
 
-    public ExamAdapter(UserData userData, Context context, boolean isSummary){
+    public ExamAdapter1(UserData userData, Context context, boolean isSummary){
         this.userData = userData;
         this.context = context;
         this.isSummary = isSummary;
@@ -87,26 +83,8 @@ public class ExamAdapter extends BaseAdapter {
         //Avvierà l'activity RegisterSessionExamModify in cui sarà possibile anche rimuovere l'esame oltre a modificarlo
 
         Button bottone = (Button) v.findViewById(R.id.modifica_Button);
+        bottone.setVisibility(View.GONE);
 
-
-
-        final Intent intent = new Intent(v.getContext(), RegisterSessionExamModify.class);
-        intent.putExtra("position", position);
-        intent.putExtra(Login.USER_OBJ, userData);
-
-        if(isSummary){
-            intent.putExtra(Login.isSUMMARY, isSummary);
-        }
-
-        bottone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Devo avviare l'activity RegisterSessionExamModify
-                //Devo passare i dati dell'esame e anche la position
-
-                context.startActivity(intent);
-            }
-        });
 
         return v;
     }

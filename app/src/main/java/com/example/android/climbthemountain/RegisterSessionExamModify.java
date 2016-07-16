@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.android.climbthemountain.CustomDialogFragment.ColorPickerDialogFragment;
 import com.example.android.climbthemountain.user_data.ExamData;
+import com.example.android.climbthemountain.user_data.UserData;
 
 import org.w3c.dom.Text;
 
@@ -35,13 +36,17 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
     // toolbar
     Toolbar tbRegistration;
 
-    ExamData esame;
+    ExamData esame = new ExamData();
 
     //Colore scelto dall'utente
     String colore;
+    int position;
+    boolean isSummary;
 
     //CustomDialogFragment
     ColorPickerDialogFragment dialogFragment;
+
+    UserData userData = new UserData();
 
     Intent intent;
 
@@ -50,12 +55,17 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_session_exam_modify_06);
 
+        //Recupero tutti i dati dall'intent
+        intent = getIntent();
+        userData = intent.getParcelableExtra(Login.USER_OBJ);
+        position = intent.getIntExtra("position", 0);
+        isSummary = intent.getBooleanExtra(Login.isSUMMARY, false);
+
+        //Inizializzo le view
         etExamNameMod = (EditText) findViewById(R.id.etSessionExam_examName_Mod);
         etCfuMod = (EditText) findViewById(R.id.etSessionExam_cfu_Mod);
         dpExamDate = (DatePicker) findViewById(R.id.dpSessionExam_deadline_Mod);
-
         colorPickerSelection = (TextView) findViewById(R.id.tvSessionExam_colorSquare_Mod);
-
         colorExamPicker = (Button) findViewById(R.id.btSessionExam_colorPck_Mod);
         cancel = (Button) findViewById(R.id.btCancel);
         delete = (Button) findViewById(R.id.btDelete);
@@ -64,9 +74,8 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar_Mod);
         setSupportActionBar(tbRegistration);
 
-        intent = getIntent();
-        esame = intent.getParcelableExtra("esame");
-
+        //Organizzo meglio con delle variabili
+        esame = userData.userExams.get(position);
         colore = esame.getColore();
 
         //RECUPERO I DATI DA MODIFICARE DELL'ESAME
@@ -83,7 +92,9 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
             public void onClick(View v) {
                 //L'utente vuole tornare indietro senza far nulla
                 Intent intent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
-                intent.putExtra("codice", "continua");
+                //non ho più bisogno della position
+                intent.putExtra(Login.USER_OBJ, userData);
+                intent.putExtra(Login.isSUMMARY, isSummary);
                 startActivity(intent);
             }
         });
@@ -92,10 +103,15 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
-                intent1.putExtra("codice", "eliminaEsame");
-                intent1.putExtra("position", intent.getIntExtra("position", 0));
-                startActivity(intent1);
+                Intent intent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
+
+                //Aggiorno l'utente
+                userData.userExams.remove(position);
+
+                //Carico l'utente aggiornato sull'intent
+                intent.putExtra(Login.USER_OBJ, userData);
+                intent.putExtra(Login.isSUMMARY, isSummary);
+                startActivity(intent);
             }
         });
 
@@ -151,6 +167,10 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         esame.setMese(dpExamDate.getMonth());
         esame.setAnno(dpExamDate.getYear());
 
+        //Aggiorno l'utente
+        userData.userExams.remove(position);
+        userData.userExams.add(position, esame);
+
         //In mancanza di un controllo più approfondito
         if(colore != null) {
             esame.setColore(colore);
@@ -160,18 +180,21 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         }
 
 
-        //Ho recuperato i dati dell'esame, lo passo all'activity 03
+        //HO RECUPERATO TUTTI I DATI MODIFICATI, LI CARICO SULL'UTENTE
+
+            Intent intent = new Intent(this, RegisterSessionExamSelection.class);
+            //Carico l'utente sull'intent
+            intent.putExtra(Login.USER_OBJ, userData);
+            intent.putExtra(Login.isSUMMARY, isSummary);
+            startActivity(intent);
 
 
 
 
 
-        Intent intent = new Intent(this, RegisterSessionExamSelection.class);
-        intent.putExtra("esame", esame);
-        intent.putExtra("codice", "modificaEsame");
-        intent.putExtra("position", this.intent.getIntExtra("position", 0));
 
-        startActivity(intent);
+
+
     }
 
 

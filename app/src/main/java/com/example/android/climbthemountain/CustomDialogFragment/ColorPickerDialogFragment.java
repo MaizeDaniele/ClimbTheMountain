@@ -61,7 +61,12 @@ public class ColorPickerDialogFragment extends DialogFragment {
         dialogBuilder.setView(v);
         dialogBuilder.setPositiveButton("conferma", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                interfaccia.onPositiveButtonClick(colore);
+                if(colore == null){
+                    //imposto il nero come colore base
+                    interfaccia.onPositiveButtonClick("#000000");
+                }else {
+                    interfaccia.onPositiveButtonClick(colore);
+                }
             }
         });
         dialogBuilder.setNegativeButton("annulla", new DialogInterface.OnClickListener() {
@@ -142,15 +147,8 @@ public class ColorPickerDialogFragment extends DialogFragment {
         this.listaColori.add("#795548");
         this.listaColori.add("#9E9E9E");
         this.listaColori.add("#607D8B");
-        this.listaColori.add("#000000");
-        this.listaColori.add("#FFFFFF");
+
     }
 
-    public String getColore(){
-        return colore;
-    }
 
-    public ImageView getImmagine(){
-        return immagine;
-    }
 }

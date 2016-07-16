@@ -175,6 +175,7 @@ public class RegisterAccountData extends AppCompatActivity {
         } else {
             intent= new Intent(getApplicationContext(), RegisterSessionData.class);
             intent.putExtra(Login.USER_OBJ, accountData);
+            intent.putExtra("codice", "");
 
             startActivity(intent);
 

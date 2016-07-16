@@ -8,9 +8,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.android.climbthemountain.CustomAdapter.ExamAdapter;
+import com.example.android.climbthemountain.CustomAdapter.ExamAdapter1;
 import com.example.android.climbthemountain.CustomCalendar.BaseWeekDay;
 import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.DailyHours;
 import com.example.android.climbthemountain.CustomCalendar.Monday;
@@ -29,6 +33,10 @@ public class RegisterSessionSummary extends AppCompatActivity{
     Button btEditAccount;
     Button btEditSession;
     Button btEditHours;
+    Button btEditExamsList;
+
+    ListView listView;
+    ExamAdapter1 adattatore1;
 
     // toolbar
     Toolbar tbRegistration;
@@ -52,9 +60,11 @@ public class RegisterSessionSummary extends AppCompatActivity{
         btEditAccount = (Button) findViewById(R.id.btSessionSum_editUser);
         btEditSession = (Button) findViewById(R.id.btSessionSum_editSession);
         btEditHours = (Button) findViewById(R.id.btSessionSum_editHours);
+        btEditExamsList = (Button) findViewById(R.id.btSessionSum_editListExams);
 
         // toolbar
         tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
+
 
 
         Intent intent = getIntent();
@@ -64,6 +74,8 @@ public class RegisterSessionSummary extends AppCompatActivity{
                 accountData = intent.getParcelableExtra(Login.USER_OBJ);
             }
         }
+
+
 
 
         btEditAccount.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +109,19 @@ public class RegisterSessionSummary extends AppCompatActivity{
                 Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
                 nextIntent.putExtra(Login.USER_OBJ, accountData);
                 nextIntent.putExtra(Login.isSUMMARY, true);
+                nextIntent.putExtra("codice", "visualizzaLista");
                 startActivity(nextIntent);
 
+            }
+        });
+
+        btEditExamsList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
+                nextIntent.putExtra(Login.USER_OBJ, accountData);
+                nextIntent.putExtra(Login.isSUMMARY, true);
+                startActivity(nextIntent);
             }
         });
 
@@ -135,6 +158,20 @@ public class RegisterSessionSummary extends AppCompatActivity{
                 accountData.getSession_month(), accountData.getSession_year()));
         tvWeeklyHour.setText(String.valueOf( BaseWeekDay.countHours(accountData.userSelectedHours)));
 
+        listView = (ListView) findViewById(R.id.lvSessionSum_list);
+        //Sono nel summary, il tasto modifica delle view si comporta in maniera diversa
+        adattatore1 = new ExamAdapter1(accountData, this, true);
+        impostaListView(listView, adattatore1);
+
     }
+
+    private void impostaListView(ListView listView, ExamAdapter1 adattatore){
+        int numeroEsami = accountData.userExams.size();
+        ViewGroup.LayoutParams p = listView.getLayoutParams();
+        p.height = numeroEsami * 450;
+        listView.setLayoutParams(p);
+        listView.setAdapter(adattatore);
+    }
+
 
 }

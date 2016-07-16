@@ -309,6 +309,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
             Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
             nextIntent.putExtra(Login.USER_OBJ, accountData);
+            nextIntent.putExtra("codice", "");
 
             startActivity(nextIntent);
 

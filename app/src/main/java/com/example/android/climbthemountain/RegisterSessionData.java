@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.android.climbthemountain.CustomAdapter.ExamAdapter;
 import com.example.android.climbthemountain.CustomCalendar.BaseWeekDay;
@@ -28,6 +29,10 @@ public class RegisterSessionData extends AppCompatActivity{
     DatePicker dpSessionStart;
     Button btAddStudyHours;
     Button btAddExams;
+    TextView tvAddExams;
+
+    //Eventuale intent proveniente da activity
+    Intent intent;
 
     // toolbar
     Toolbar tbRegistration;
@@ -42,39 +47,66 @@ public class RegisterSessionData extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_session_03);
 
+        intent = getIntent();
+        //Recupero i dati dall'intent
+        accountData = intent.getParcelableExtra(Login.USER_OBJ);
+        String codice = intent.getStringExtra("codice");
+
+
+
+
         // element instance
         dpSessionStart = (DatePicker) findViewById(R.id.dpSession_date);
         btAddStudyHours = (Button) findViewById(R.id.btSession_addStudyHours);
+        tvAddExams = (TextView) findViewById(R.id.tvSession_ErrorExams);
         btAddExams = (Button) findViewById(R.id.btSession_addExam);
+
+
+        //Inizialzzo i componenti con i dati dell'utente
+        fillUserData();
+
+
+        //Verifico che l'utente abbia aggiunto esami
+        if(codice.equals("visualizzaLista")){
+            //L'utente ha già aggiunto almeno un esame, modifico il bottone
+            btAddExams.setText("Lista Esami");
+            tvAddExams.setVisibility(View.GONE);
+
+            btAddExams.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
+
+                    //Passo l'utente
+                    nextIntent.putExtra(Login.USER_OBJ, accountData);
+
+                    startActivity(nextIntent);
+                }
+            });
+
+        }else{
+            btAddExams.setText("Add Exam");
+            tvAddExams.setVisibility(View.VISIBLE);
+
+            btAddExams.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExam.class);
+
+                    //Carico l'utente nell'intent
+                    nextIntent.putExtra(Login.USER_OBJ, accountData);
+
+                    startActivity(nextIntent);
+
+                }
+            });
+        }
+
 
         // toolbar registration
         tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
         setSupportActionBar(tbRegistration);
-
-
-        // check if a previous instance of UserData was created and passed with intent
-        Intent intent = getIntent();
-
-        if(intent != null){
-            if (intent.getParcelableExtra(Login.USER_OBJ) != null) {
-                accountData = intent.getParcelableExtra(Login.USER_OBJ);
-                fillUserData();
-
-            }
-        }
-
-
-        btAddExams.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExamSelection.class);
-                nextIntent.putExtra(Login.USER_OBJ, accountData);
-
-                startActivity(nextIntent);
-
-            }
-        });
 
         btAddStudyHours.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +120,6 @@ public class RegisterSessionData extends AppCompatActivity{
 
             }
         });
-
 
     }
 
@@ -129,6 +160,7 @@ public class RegisterSessionData extends AppCompatActivity{
     private void fillUserData(){
         dpSessionStart.updateDate(accountData.getSession_year(),
                 accountData.getSession_month(), accountData.getSession_day());
+
     }
 
     private void registerDate(){
