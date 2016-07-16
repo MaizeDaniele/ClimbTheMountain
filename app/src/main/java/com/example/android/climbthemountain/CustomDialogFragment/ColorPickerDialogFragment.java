@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -52,6 +53,7 @@ public class ColorPickerDialogFragment extends DialogFragment {
 
 
 
+
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
 
         inflater = getActivity().getLayoutInflater();
@@ -76,7 +78,9 @@ public class ColorPickerDialogFragment extends DialogFragment {
                 }
             }
         });
-        dialogBuilder.setMessage("Seleziona Colore:");
+
+
+
 
 
         colorPickerGrid = (GridView) v.findViewById(R.id.ColorPickerGridView);
@@ -143,10 +147,10 @@ public class ColorPickerDialogFragment extends DialogFragment {
         this.listaColori.add("#FFEB3B");
         this.listaColori.add("#FFC107");
         this.listaColori.add("#FF9800");
-        this.listaColori.add("#FF5722");
-        this.listaColori.add("#795548");
-        this.listaColori.add("#9E9E9E");
-        this.listaColori.add("#607D8B");
+
+
+
+
 
     }
 

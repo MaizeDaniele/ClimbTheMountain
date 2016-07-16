@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ColorPickerGridView"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/orange_500"
+        android:text="@string/colorPickerDialog"
+        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:elevation="8dp"/>
 
-    android:columnWidth="36dp"
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ColorPickerGridView"
+        android:columnWidth="28dp"
+        android:numColumns="5"
+        android:verticalSpacing="24dp"
+        android:horizontalSpacing="24dp"
+        android:stretchMode="spacingWidth"
+        android:gravity="center"
+        android:layout_margin="24dp">
 
-    android:numColumns="auto_fit"
-    android:verticalSpacing="50dp"
-    android:horizontalSpacing="20dp"
-    android:stretchMode="spacingWidth"
-    android:gravity="center"
-    >
+    </GridView>
 
-</GridView>
+
+
+</LinearLayout>

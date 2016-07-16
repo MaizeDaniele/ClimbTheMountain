@@ -23,6 +23,7 @@
     <string name="delete">Delete</string>
     <string name="tvAddExams">Exams</string>
     <string name="tvListSum">Exams List:</string>
+    <string name="colorPickerDialog">Seleziona un colore:</string>
 
 
     // buttons' name
