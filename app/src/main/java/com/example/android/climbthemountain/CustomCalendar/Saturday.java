@@ -23,9 +23,9 @@ public class Saturday extends BaseWeekDay {
         accountData.userSelectedHours.setSaturday(hour);
 
         if(accountData.userSelectedHours.getSaturday().getDayHours(hour)){
-            hoursTextViews.get(hour-8).setTextColor(Color.BLUE);
+            hoursTextViews.get(hour-8).setTextColor(getResources().getColor(R.color.purple_400));
         } else{
-            hoursTextViews.get(hour-8).setTextColor(Color.GRAY);
+            hoursTextViews.get(hour-8).setTextColor(getResources().getColor(R.color.grey_700));
         }
     }
 
@@ -34,7 +34,7 @@ public class Saturday extends BaseWeekDay {
 
         for (int i = 8; i < 24; i++ ){
             if(accountData.userSelectedHours.getSaturday().getDayHours(i)){
-                hoursTextViews.get(i-8).setTextColor(Color.BLUE);
+                hoursTextViews.get(i-8).setTextColor(getResources().getColor(R.color.purple_400));
             }
         }
     }

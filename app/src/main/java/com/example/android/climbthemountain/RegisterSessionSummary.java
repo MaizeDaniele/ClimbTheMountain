@@ -46,9 +46,6 @@ public class RegisterSessionSummary extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         backAction();
-
-
-
     }
 
     @Override
@@ -70,7 +67,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
         btEditExamsList = (Button) findViewById(R.id.btSessionSum_editListExams);
 
         // toolbar
-        tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
 
 
 
@@ -151,6 +148,22 @@ public class RegisterSessionSummary extends AppCompatActivity{
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()){
+
+            case (R.id.btBack):
+                backAction();
+
+                break;
+
+            case (R.id.btConfirm):
+
+                break;
+
+        }
+
+
 
         // Start to the END :P
         return super.onOptionsItemSelected(item);

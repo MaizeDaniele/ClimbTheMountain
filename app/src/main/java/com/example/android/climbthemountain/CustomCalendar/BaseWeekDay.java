@@ -265,7 +265,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
         //setSupportActionBar(tbRegistration);
 
     }
@@ -329,7 +329,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
     protected void setAllHoursGray(){
         for (int i = 0; i < hoursTextViews.size(); i++){
 
-            hoursTextViews.get(i).setTextColor(Color.GRAY);
+            hoursTextViews.get(i).setTextColor(getResources().getColor(R.color.grey_700));
 
         }
     }

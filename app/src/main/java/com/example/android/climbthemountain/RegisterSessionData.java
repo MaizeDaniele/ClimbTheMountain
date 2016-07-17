@@ -80,21 +80,16 @@ public class RegisterSessionData extends AppCompatActivity{
 
         //Inizialzzo i componenti con i dati dell'utente
 
-
-        setDatePicker();
         fillUserData();
+        setDatePicker();
 
         clearMessages();
         checkOnCreate();
 
-
-
-
-
         //Verifico che l'utente abbia aggiunto esami
         if(isFromList || isSummary){
             //L'utente ha già aggiunto almeno un esame, modifico il bottone
-            btAddExams.setText("Lista Esami");
+            btAddExams.setText(R.string.mod_button_lsit_exams);
 
             btAddExams.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -109,7 +104,7 @@ public class RegisterSessionData extends AppCompatActivity{
             });
 
         }else{
-            btAddExams.setText("Add Exam");
+            btAddExams.setText(R.string.mod_button_add_exam);
 
             btAddExams.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -128,7 +123,7 @@ public class RegisterSessionData extends AppCompatActivity{
 
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
         //setSupportActionBar(tbRegistration);
 
         btAddStudyHours.setOnClickListener(new View.OnClickListener() {
@@ -190,9 +185,6 @@ public class RegisterSessionData extends AppCompatActivity{
                 break;
 
         }
-
-
-
 
         return super.onOptionsItemSelected(item);
     }

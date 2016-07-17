@@ -1,8 +1,9 @@
 package com.example.android.climbthemountain;
 
 
+import android.annotation.TargetApi;
 import android.content.Intent;
-import android.media.Image;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -80,8 +81,8 @@ public class RegisterAccountData extends AppCompatActivity {
         tvUsername = (TextView) findViewById(R.id.tvReg_username);
         tvPasswordRepeat = (TextView) findViewById(R.id.tvReg_passRep);
 
-        //imWarn1 = (ImageView) findViewById(R.id.image_warningPass01);
-        //imWarn2 = (ImageView) findViewById(R.id.image_warningPass02);
+        imWarn1 = (ImageView) findViewById(R.id.image_warningPass01);
+        imWarn2 = (ImageView) findViewById(R.id.image_warningPass02);
 
         listEt.add(etName);
         listEt.add(etSurname);
@@ -96,7 +97,7 @@ public class RegisterAccountData extends AppCompatActivity {
         listTv.add(tvPasswordRepeat); // get(4)
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
         //setSupportActionBar(tbRegistration);
 
         hintSetOnCreate();
@@ -376,7 +377,7 @@ public class RegisterAccountData extends AppCompatActivity {
 
             } else {
 
-                listTv.get(i).setTextColor(getResources().getColor(R.color.grey_900));
+                //listTv.get(i).setTextColor(getResources().getColor(R.color.grey_900));
                 listEt.get(i).setHintTextColor(getResources().getColor(R.color.grey_600));
 
                 switch (i) {
@@ -395,9 +396,14 @@ public class RegisterAccountData extends AppCompatActivity {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void realTimePasswordMatching(){
 
         if (listEt.get(3).getText().toString().equals("") || listEt.get(4).toString().equals("")) {
+
+            imWarn1.setVisibility(View.GONE);
+            imWarn2.setVisibility(View.GONE);
+
 
             /*if(flag){
                 listTv.get(3).setTextColor(getResources().getColor(R.color.grey_900));
@@ -412,6 +418,11 @@ public class RegisterAccountData extends AppCompatActivity {
 
             // INSERT HERE FOR PASSWORD MATCHING CONTROL IMAGE
 
+            //imWarn1.setVisibility(View.VISIBLE);
+            //imWarn1.setImageDrawable(getDrawable(R.drawable.vector_drawable_ic_done_green___px));
+
+            imWarn2.setVisibility(View.VISIBLE);
+            imWarn2.setImageDrawable(getDrawable(R.drawable.vector_drawable_ic_done_green___px));
 
 
 
@@ -420,7 +431,15 @@ public class RegisterAccountData extends AppCompatActivity {
 
         } else {
 
-            imWarn1.setVisibility(View.VISIBLE);
+            if(!etPasswordRepeat.getText().toString().equals("")){
+
+                //imWarn1.setVisibility(View.VISIBLE);
+                //imWarn1.setImageDrawable(getDrawable(R.drawable.vector_drawable_ic_warning_black___px));
+
+                imWarn2.setVisibility(View.VISIBLE);
+                imWarn2.setImageDrawable(getDrawable(R.drawable.vector_drawable_ic_warning_black___px));
+            }
+
 
 
             /*listTv.get(3).setTextColor(getResources().getColor(R.color.red_600));
@@ -435,6 +454,9 @@ public class RegisterAccountData extends AppCompatActivity {
 
             listTv.get(i).setTextColor(getResources().getColor(R.color.grey_900));
             listEt.get(i).setHintTextColor(getResources().getColor(R.color.grey_600));
+
+            imWarn1.setVisibility(View.GONE);
+            imWarn2.setVisibility(View.GONE);
 
             switch (i) {
                 case 0:

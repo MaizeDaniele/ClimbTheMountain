@@ -21,6 +21,7 @@ import com.example.android.climbthemountain.user_data.ExamData;
 import com.example.android.climbthemountain.user_data.UserData;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class RegisterSessionExam extends AppCompatActivity implements ColorPickerDialogFragment.interazioneColorPicker {
 
@@ -89,7 +90,7 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
         btColor = (Button) findViewById(R.id.btSessionExam_colorPck);
 
         // toolbar
-        tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar);
         //setSupportActionBar(tbRegistration);
 
         // adding references
@@ -161,9 +162,9 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
         });
 
-        setDatePicker();
-        hintSetOnCreate();
 
+        hintSetOnCreate();
+        setDatePicker();
     }
 
     // inflate the menu for App Bar
@@ -201,15 +202,15 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
     public void onPositiveButtonClick(String colore){
         //Recupera il colore e lo aggiunge all'esame
 
-        this.colore = colore;
+        if(!Objects.equals(colore, "#000000")) this.colore = colore;
         TextView txt = (TextView) findViewById(R.id.tvSessionExam_colorSquare);
-        if(colore == null){
-            txt.setBackgroundColor(Color.parseColor("#000000"));
+        if(this.colore == null){
+            //txt.setBackgroundColor(Color.parseColor("#000000"));
         }else {
-            txt.setBackgroundColor(Color.parseColor(colore));
+            txt.setBackgroundColor(Color.parseColor(this.colore));
         }
 
-        setMessageColor();
+        //setMessageColor();
 
     }
 
@@ -233,9 +234,9 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
             if(colore != null) {
                 esame.setColore(colore);
             }
-            else {
+            /*else {
                 esame.setColore("#000000");
-            }
+            }*/
 
             //Ho recuperato i dati dell'esame, lo passo all'activity 03
             Intent intent = new Intent(this, RegisterSessionExamSelection.class);
@@ -323,14 +324,14 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
         if (controllerFieldEmpty()[0] && flag) {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            //tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
             etExamName.setHintTextColor(getResources().getColor(R.color.orange_700));
 
             etExamName.setHint(R.string.hint_error_examName_noName);
 
         } else {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            //tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
 
 
         }

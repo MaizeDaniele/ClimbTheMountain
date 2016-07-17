@@ -23,6 +23,7 @@ import com.example.android.climbthemountain.user_data.UserData;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RegisterSessionExamModify extends AppCompatActivity implements ColorPickerDialogFragment.interazioneColorPicker {
 
@@ -91,7 +92,7 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         delete = (Button) findViewById(R.id.btDelete);
 
         // toolbar
-        tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar_Mod);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar_Mod);
         //setSupportActionBar(tbRegistration);
 
         //Organizzo meglio con delle variabili
@@ -209,9 +210,9 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
     public void onPositiveButtonClick(String colore){
         //Recupera il colore e lo aggiunge all'esame
 
-        this.colore = colore;
+        if(!Objects.equals(colore, "#000000")) this.colore = colore;
         TextView txt = (TextView) findViewById(R.id.tvSessionExam_colorSquare_Mod);
-        txt.setBackgroundColor(Color.parseColor(colore));
+        txt.setBackgroundColor(Color.parseColor(this.colore));
 
     }
 
@@ -249,7 +250,7 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
     private void saveExamData() {
 
         flag = true;
-        setMessageColor();
+        //setMessageColor();
 
         if (isCFUaValidNumb() && !anyFieldEmpty() && colorIsChosen() ){
 
@@ -268,9 +269,9 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
             if(colore != null) {
                 esame.setColore(colore);
             }
-            else {
+            /*else {
                 esame.setColore("#000000");
-            }
+            }*/
 
 
             //HO RECUPERATO TUTTI I DATI MODIFICATI, LI CARICO SULL'UTENTE
@@ -283,7 +284,7 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
         } else if (!etCfuMod.getText().toString().equals("") && !isCFUaValidNumb()){
 
-            setMessageColor();
+            //setMessageColor();
             controlValidCFU();
         } else if(anyFieldEmpty()){
 
@@ -358,14 +359,14 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
 
         if (controllerFieldEmpty()[0] && flag) {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            //tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
             etExamNameMod.setHintTextColor(getResources().getColor(R.color.orange_700));
 
             etExamNameMod.setHint(R.string.hint_error_examName_noName);
 
         } else {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            //tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
 
 
         }
