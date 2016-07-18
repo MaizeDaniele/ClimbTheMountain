@@ -268,8 +268,8 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
-        setSupportActionBar(tbRegistration);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
+        //setSupportActionBar(tbRegistration);
 
     }
 

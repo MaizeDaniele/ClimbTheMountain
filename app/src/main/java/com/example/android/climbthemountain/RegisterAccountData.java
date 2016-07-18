@@ -103,7 +103,7 @@ public class RegisterAccountData extends AppCompatActivity {
         listTv.add(tvPasswordRepeat); // get(4)
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
         //setSupportActionBar(tbRegistration);
 
         hintSetOnCreate();

@@ -78,6 +78,7 @@
                     android:textSize="16sp" />
 
                 <ImageView
+                    android:visibility="invisible"
                     android:layout_marginLeft="224dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/vector_drawable_ic_warning_black___px"
@@ -109,6 +110,7 @@
                     android:textSize="16sp" />
 
                 <ImageView
+                    android:visibility="invisible"
                     android:layout_marginLeft="170dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/vector_drawable_ic_warning_black___px"

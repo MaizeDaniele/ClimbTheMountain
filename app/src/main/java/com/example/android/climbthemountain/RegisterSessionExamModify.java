@@ -95,7 +95,7 @@ public class RegisterSessionExamModify extends AppCompatActivity implements Colo
         delete = (Button) findViewById(R.id.btDelete);
 
         // toolbar
-        tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar_Mod);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar_Mod);
         //setSupportActionBar(tbRegistration);
 
         //Organizzo meglio con delle variabili

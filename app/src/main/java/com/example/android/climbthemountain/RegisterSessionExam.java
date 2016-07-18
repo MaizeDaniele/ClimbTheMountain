@@ -102,7 +102,7 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
         btColor = (Button) findViewById(R.id.btSessionExam_colorPck);
 
         // toolbar
-        tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionExam_toolbar);
         //setSupportActionBar(tbRegistration);
 
         // adding references

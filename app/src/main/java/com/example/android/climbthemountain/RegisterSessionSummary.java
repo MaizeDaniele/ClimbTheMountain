@@ -1,6 +1,7 @@
 package com.example.android.climbthemountain;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,16 +28,17 @@ public class RegisterSessionSummary extends AppCompatActivity{
     TextView tvUsername;
     TextView tvWeeklyHour;
     TextView tvSessionstart;
-    Button btEditAccount;
-    Button btEditSession;
-    Button btEditHours;
-    Button btEditExamsList;
+    ImageButton btEditAccount;
+    ImageButton btEditSession;
+
+    ImageButton btEditExamsList;
+    ActionBar actionBar;
 
     ListView listView;
     ExamAdapter1 adattatore1;
 
     // toolbar
-    Toolbar tbRegistration;
+
 
     UserData userData = new UserData();
 
@@ -71,6 +74,9 @@ public class RegisterSessionSummary extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_session_summary_05);
 
+        actionBar = getSupportActionBar();
+        actionBar.setHomeAsUpIndicator(R.drawable.vector_drawable_ic_cancel_black___px);
+
         // element instance
         tvName = (TextView) findViewById(R.id.tvSessionSum_nameShow);
         tvSurname = (TextView) findViewById(R.id.tvSessionSum_surnameShow);
@@ -79,13 +85,13 @@ public class RegisterSessionSummary extends AppCompatActivity{
         tvSessionstart = (TextView) findViewById(R.id.tvSessionSum_sessionStartShow);
 
         // buttons
-        btEditAccount = (Button) findViewById(R.id.btSessionSum_editUser);
-        btEditSession = (Button) findViewById(R.id.btSessionSum_editSession);
-        btEditHours = (Button) findViewById(R.id.btSessionSum_editHours);
-        btEditExamsList = (Button) findViewById(R.id.btSessionSum_editListExams);
+        btEditAccount = (ImageButton) findViewById(R.id.btSessionSum_editUser);
+        btEditSession = (ImageButton) findViewById(R.id.btSessionSum_editSession);
+
+        btEditExamsList = (ImageButton) findViewById(R.id.btSessionSum_editListExams);
 
         // toolbar
-        tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
 
 
 
@@ -113,17 +119,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
             }
         });
 
-        btEditHours.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent nextIntent = new Intent(getApplicationContext(), Monday.class);
-                nextIntent.putExtra(Login.USER_OBJ, userData);
-                nextIntent.putExtra(Login.isSUMMARY, true);
-                startActivity(nextIntent);
-
-            }
-        });
 
         btEditSession.setOnClickListener(new View.OnClickListener() {
             @Override

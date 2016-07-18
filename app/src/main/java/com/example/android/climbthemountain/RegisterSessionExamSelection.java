@@ -75,7 +75,7 @@ public class RegisterSessionExamSelection extends AppCompatActivity {
         back_userData = userData;
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
         //setSupportActionBar(tbRegistration);
 
         bt_addExam = (Button) findViewById(R.id.btSession_addExam);

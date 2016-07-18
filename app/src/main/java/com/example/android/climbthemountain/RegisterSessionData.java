@@ -140,7 +140,7 @@ public class RegisterSessionData extends AppCompatActivity{
 
 
         // toolbar registration
-        tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
+        //tbRegistration = (Toolbar) findViewById(R.id.tbSession_toolbar);
         //setSupportActionBar(tbRegistration);
 
         btAddStudyHours.setOnClickListener(new View.OnClickListener() {

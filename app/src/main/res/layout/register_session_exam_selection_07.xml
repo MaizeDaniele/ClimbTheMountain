@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="25">
+    android:weightSum="10"
+    >
 
 
     <ListView
@@ -11,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        android:layout_weight="18">
+        android:layout_weight="9"
+        >
 
     </ListView>
 
@@ -22,6 +24,7 @@
         android:layout_height="0dp"
         android:layout_margin="5dp"
         android:text="@string/bt_add_exam"
-        android:layout_weight="2"/>
+        android:layout_weight="1"
+        />
 </LinearLayout>
 

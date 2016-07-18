@@ -60,7 +60,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@drawable/vector_drawable_ic_create_black___px"
-        android:background="#FFFFFF"
+        android:background="#fafafa"
         android:layout_alignParentRight="true"
         />
 
