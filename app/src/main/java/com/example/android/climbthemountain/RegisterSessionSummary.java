@@ -48,25 +48,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-
-        Intent intent;
-
-        if (isFromList){
-
-            intent = new Intent(this, RegisterSessionExamSelection.class);
-        } else if (isFromAccount){
-
-            intent = new Intent(this, RegisterAccountData.class);
-        } else {
-
-            intent = new Intent(this, RegisterSessionData.class);
-        }
-
-        intent.putExtra(Login.USER_OBJ, userData);
-        intent.putExtra(Login.isSUMMARY, true);
-        startActivity(intent);
-
-
+        backAction();
     }
 
     @Override
@@ -163,6 +145,22 @@ public class RegisterSessionSummary extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+
+        switch (item.getItemId()){
+
+            case (R.id.btBack):
+                backAction();
+
+                break;
+
+            case (R.id.btConfirm):
+
+                break;
+
+        }
+
+
+
         // Start to the END :P
         return super.onOptionsItemSelected(item);
 
@@ -190,6 +188,29 @@ public class RegisterSessionSummary extends AppCompatActivity{
         p.height = numeroEsami * 450;
         listView.setLayoutParams(p);
         listView.setAdapter(adattatore);
+    }
+
+
+    private void backAction(){
+
+
+        Intent intent;
+
+        if (isFromList){
+
+            intent = new Intent(this, RegisterSessionExamSelection.class);
+        } else if (isFromAccount){
+
+            intent = new Intent(this, RegisterAccountData.class);
+        } else {
+
+            intent = new Intent(this, RegisterSessionData.class);
+        }
+
+        intent.putExtra(Login.USER_OBJ, userData);
+        intent.putExtra(Login.isSUMMARY, true);
+        startActivity(intent);
+
     }
 
 

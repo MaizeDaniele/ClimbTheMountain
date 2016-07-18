@@ -21,6 +21,7 @@ import com.example.android.climbthemountain.user_data.ExamData;
 import com.example.android.climbthemountain.user_data.UserData;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public class RegisterSessionExam extends AppCompatActivity implements ColorPickerDialogFragment.interazioneColorPicker {
 
@@ -61,21 +62,8 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
     @Override
     public void onBackPressed() {
-        Intent intent;
+        backAction();
 
-        if(back_fromList){
-
-             intent = new Intent(this, RegisterSessionExamSelection.class);
-        } else {
-
-            // like if the user wants to cancel the action to insert a new exam
-            intent = new Intent(this, RegisterSessionData.class);
-        }
-
-
-        intent.putExtra(Login.USER_OBJ, back_userData);
-        intent.putExtra(Login.isSUMMARY, isSummary);
-        startActivity(intent);
     }
 
     @Override
@@ -157,9 +145,26 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
             }
         });
 
-        setDatePicker();
-        hintSetOnCreate();
+        etCFU.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) tvCFU.setTextColor(getResources().getColor(R.color.purple_400));
+                else tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+            }
+        });
 
+        etExamName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) tvExamName.setTextColor(getResources().getColor(R.color.purple_400));
+                else tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            }
+
+        });
+
+
+        hintSetOnCreate();
+        setDatePicker();
     }
 
     // inflate the menu for App Bar
@@ -173,7 +178,22 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        saveExamData();
+
+
+        switch (item.getItemId()){
+
+            case (R.id.btBack):
+                backAction();
+
+                break;
+
+            case (R.id.btConfirm):
+
+                saveExamData();
+                break;
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -182,15 +202,15 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
     public void onPositiveButtonClick(String colore){
         //Recupera il colore e lo aggiunge all'esame
 
-        this.colore = colore;
+        if(!Objects.equals(colore, "#000000")) this.colore = colore;
         TextView txt = (TextView) findViewById(R.id.tvSessionExam_colorSquare);
-        if(colore == null){
-            txt.setBackgroundColor(Color.parseColor("#000000"));
+        if(this.colore == null){
+            //txt.setBackgroundColor(Color.parseColor("#000000"));
         }else {
-            txt.setBackgroundColor(Color.parseColor(colore));
+            txt.setBackgroundColor(Color.parseColor(this.colore));
         }
 
-        setMessageColor();
+        //setMessageColor();
 
     }
 
@@ -214,9 +234,9 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
             if(colore != null) {
                 esame.setColore(colore);
             }
-            else {
+            /*else {
                 esame.setColore("#000000");
-            }
+            }*/
 
             //Ho recuperato i dati dell'esame, lo passo all'activity 03
             Intent intent = new Intent(this, RegisterSessionExamSelection.class);
@@ -252,7 +272,10 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
         tvCFU.setHintTextColor(getResources().getColor(R.color.grey_900));
 
         tvColorError.setVisibility(View.GONE);
-        tvColorError.setTextColor(getResources().getColor(R.color.cyan_600));
+        tvColorError.setTextColor(getResources().getColor(R.color.orange_700));
+
+        btColor.setBackgroundColor(getResources().getColor(R.color.grey_300));
+        btColor.setTextColor(getResources().getColor(R.color.grey_800));
     }
 
 
@@ -301,14 +324,14 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
         if (controllerFieldEmpty()[0] && flag) {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.cyan_600));
-            etExamName.setHintTextColor(getResources().getColor(R.color.cyan_300));
+            //tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            etExamName.setHintTextColor(getResources().getColor(R.color.orange_700));
 
             etExamName.setHint(R.string.hint_error_examName_noName);
 
         } else {
 
-            tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
+            //tvExamName.setTextColor(getResources().getColor(R.color.grey_900));
 
 
         }
@@ -317,20 +340,20 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
             if (!control) {
 
-                tvCFU.setTextColor(getResources().getColor(R.color.cyan_600));
-                etCFU.setHintTextColor(getResources().getColor(R.color.cyan_300));
+//                tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+                etCFU.setHintTextColor(getResources().getColor(R.color.orange_700));
 
                 etCFU.setHint(R.string.hint_error_examCfu_noCfu);
 
             } else {
-
-                tvCFU.setTextColor(getResources().getColor(R.color.red_900));
+//
+//                tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
                 etCFU.setHintTextColor(getResources().getColor(R.color.red_600));
             }
 
         } else {
 
-            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
+//            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
 
         }
 
@@ -349,7 +372,7 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
 
             control = true;
 
-            tvCFU.setTextColor(getResources().getColor(R.color.red_900));
+//            tvCFU.setTextColor(getResources().getColor(R.color.grey_900));
             etCFU.setHintTextColor(getResources().getColor(R.color.red_600));
 
             etCFU.setHint(R.string.hint_error_examCfu_noChar);
@@ -363,8 +386,18 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
     private void setMessageColor(){
 
         if (colorIsChosen() ) tvColorError.setVisibility(View.GONE);
-        else if (flag && !colorIsChosen()) tvColorError.setVisibility(View.VISIBLE);
-        else tvColorError.setVisibility(View.GONE);
+        else if (flag && !colorIsChosen()){
+
+            tvColorError.setVisibility(View.VISIBLE);
+            btColor.setBackgroundColor(getResources().getColor(R.color.orange_300));
+            btColor.setTextColor(getResources().getColor(R.color.white));
+        }
+        else{
+
+            tvColorError.setVisibility(View.GONE);
+            btColor.setBackgroundColor(getResources().getColor(R.color.grey_300));
+            btColor.setTextColor(getResources().getColor(R.color.grey_800));
+        }
     }
 
     private boolean colorIsChosen(){
@@ -382,6 +415,24 @@ public class RegisterSessionExam extends AppCompatActivity implements ColorPicke
         dpExamDate.updateDate(mYear,mMonth,mDay);
     }
 
+    private void backAction(){
+
+        Intent intent;
+
+        if(back_fromList){
+
+            intent = new Intent(this, RegisterSessionExamSelection.class);
+        } else {
+
+            // like if the user wants to cancel the action to insert a new exam
+            intent = new Intent(this, RegisterSessionData.class);
+        }
+
+
+        intent.putExtra(Login.USER_OBJ, back_userData);
+        intent.putExtra(Login.isSUMMARY, isSummary);
+        startActivity(intent);
+    }
 
 
 }

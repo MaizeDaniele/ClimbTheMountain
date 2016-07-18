@@ -66,10 +66,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Intent intent = new Intent(this, RegisterSessionData.class);
-        intent.putExtra(Login.USER_OBJ, back_accountData);
 
-        startActivity(intent);
 
     }
 
@@ -289,8 +286,22 @@ public abstract class BaseWeekDay extends AppCompatActivity {
     // manage menu's items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        saveSelectedWeekHours();
+
+        switch (item.getItemId()){
+
+            case (R.id.btBack):
+                backAction();
+
+                break;
+
+            case (R.id.btConfirm):
+                saveSelectedWeekHours();
+                break;
+
+        }
+
         return super.onOptionsItemSelected(item);
+
     }
 
 
@@ -318,7 +329,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
     protected void setAllHoursGray(){
         for (int i = 0; i < hoursTextViews.size(); i++){
 
-            hoursTextViews.get(i).setTextColor(Color.GRAY);
+            hoursTextViews.get(i).setTextColor(getResources().getColor(R.color.grey_700));
 
         }
     }
@@ -337,6 +348,14 @@ public abstract class BaseWeekDay extends AppCompatActivity {
         }
 
         return count;
+    }
+
+    private void backAction(){
+
+        Intent intent = new Intent(this, RegisterSessionData.class);
+        intent.putExtra(Login.USER_OBJ, back_accountData);
+
+        startActivity(intent);
     }
 
 }
