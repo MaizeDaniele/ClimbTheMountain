@@ -27,7 +27,7 @@
                 android:id="@+id/tvReg_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:text="@string/name"
                 android:textSize="16sp" />
 
@@ -35,13 +35,14 @@
                 android:id="@+id/etReg_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="13dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
             <TextView
                 android:id="@+id/tvReg_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:text="@string/surname"
                 android:textSize="16sp"/>
 
@@ -49,14 +50,15 @@
                 android:id="@+id/etReg_surname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="13dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
             <TextView
                 android:id="@+id/tvReg_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="13dp"
                 android:text="@string/username"
                 android:textSize="16sp" />
 
@@ -64,7 +66,8 @@
                 android:id="@+id/etReg_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="13dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +77,7 @@
                     android:id="@+id/tvReg_pass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:padding="13dp"
                     android:text="@string/password_Up"
                     android:textSize="16sp" />
 
@@ -95,7 +98,8 @@
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="13dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -106,7 +110,7 @@
                     android:id="@+id/tvReg_passRep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:padding="13dp"
                     android:text="@string/repeat_pass"
                     android:textSize="16sp" />
 
@@ -126,7 +130,8 @@
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="13dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
 

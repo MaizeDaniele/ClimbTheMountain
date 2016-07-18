@@ -70,6 +70,7 @@ public class ExamAdapter1 extends BaseAdapter {
         //Riempio la View con i dati passati nella listaEsami
         TextView txt = (TextView) v.findViewById(R.id.nomeEsame_TextView);
         txt.setText(esame.getNome());
+        txt.setTextColor(Color.parseColor(esame.getColore()));
 
         txt = (TextView) v.findViewById(R.id.cfuEsame_TextView);
         txt.setText(String.format("%d", esame.getCfu()));

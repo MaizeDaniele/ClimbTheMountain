@@ -12,7 +12,7 @@
         android:layout_height="12dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:background="#FFFFFF"
+        android:src="@drawable/vector_drawable_ic_done_black___px"
         android:visibility="invisible"
         />
 

@@ -24,6 +24,8 @@
     <string name="tvAddExams">Esame</string>
     <string name="tvListSum">Lista  Esami:</string>
     <string name="colorPickerDialog">Seleziona un colore:</string>
+    <string name="labelcfuExamList">CFU:</string>
+    <string name="labelDateExamList">Data:</string>
 
 
     // buttons' name

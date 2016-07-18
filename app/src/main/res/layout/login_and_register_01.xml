@@ -22,7 +22,8 @@
         android:layout_marginTop="20dp"
         android:hint="@string/username"
         android:padding="10dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
     <EditText
@@ -35,7 +36,8 @@
         android:inputType="textPassword"
         android:padding="10dp"
         android:paddingTop="10dp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:windowSoftInputMode="stateHidden|adjustResize"/>
 
     <Button
         android:id="@+id/btLogin_login"

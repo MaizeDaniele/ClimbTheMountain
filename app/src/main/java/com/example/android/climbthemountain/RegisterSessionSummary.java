@@ -56,9 +56,6 @@ public class RegisterSessionSummary extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_session_summary_05);
 
-        actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.vector_drawable_ic_cancel_black___px);
-
         // element instance
         tvName = (TextView) findViewById(R.id.tvSessionSum_nameShow);
         tvSurname = (TextView) findViewById(R.id.tvSessionSum_surnameShow);
@@ -71,10 +68,6 @@ public class RegisterSessionSummary extends AppCompatActivity{
         btEditSession = (ImageButton) findViewById(R.id.btSessionSum_editSession);
 
         btEditExamsList = (ImageButton) findViewById(R.id.btSessionSum_editListExams);
-
-        // toolbar
-        //tbRegistration = (Toolbar) findViewById(R.id.tbSessionSum_toolbar);
-
 
 
         Intent intent = getIntent();
@@ -185,7 +178,7 @@ public class RegisterSessionSummary extends AppCompatActivity{
     private void impostaListView(ListView listView, ExamAdapter1 adattatore){
         int numeroEsami = userData.userExams.size();
         ViewGroup.LayoutParams p = listView.getLayoutParams();
-        p.height = numeroEsami * 450;
+        p.height = numeroEsami * 680;
         listView.setLayoutParams(p);
         listView.setAdapter(adattatore);
     }

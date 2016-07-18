@@ -13,7 +13,7 @@
         android:elevation="4dp"
         android:layout_height="72dp"
         android:orientation="horizontal"
-        android:background="@color/orange_A100">
+        android:background="@color/orange_A200">
 
         <Button
             android:id="@+id/bt_go_backward"

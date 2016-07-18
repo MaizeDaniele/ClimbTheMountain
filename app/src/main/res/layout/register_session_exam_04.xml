@@ -37,7 +37,8 @@
                 android:id="@+id/etSessionExam_examName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
             <TextView
@@ -52,7 +53,8 @@
                 android:id="@+id/etSessionExam_cfu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:windowSoftInputMode="stateHidden|adjustResize"/>
 
             <TextView
                 android:id="@+id/tvSessionExam_deadline"

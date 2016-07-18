@@ -133,7 +133,7 @@ public class ColorPickerDialogFragment extends DialogFragment {
 
     private void inizializzaListaColori(){
         this.listaColori.add("#F44336");
-        this.listaColori.add("#E91E63");
+
         this.listaColori.add("#9C27B0");
         this.listaColori.add("#673AB7");
         this.listaColori.add("#3F51B5");
@@ -144,7 +144,7 @@ public class ColorPickerDialogFragment extends DialogFragment {
         this.listaColori.add("#4CAF50");
         this.listaColori.add("#8BC34A");
         this.listaColori.add("#CDDC39");
-        this.listaColori.add("#FFEB3B");
+
         this.listaColori.add("#FFC107");
         this.listaColori.add("#FF9800");
 

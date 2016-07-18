@@ -13,48 +13,60 @@
         <!-- Activity Register Account -->
         <activity
             android:name=".RegisterAccountData"
-            android:label="@string/activity_register" />
+            android:label="@string/activity_register"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <!-- Activity Register Session -->
         <activity
             android:name=".RegisterSessionData"
-            android:label="@string/activity_session" />
+            android:label="@string/activity_session"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <!-- Activity Register Exam -->
         <activity
             android:name=".RegisterSessionExam"
-            android:label="@string/activity_exams" />
+            android:label="@string/activity_exams"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <!-- Activity Summary -->
         <activity
             android:name=".RegisterSessionSummary"
-            android:label="@string/activity_summary" />
+            android:label="@string/activity_summary"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Monday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Tuesday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Wednesday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Thursday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Friday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Saturday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".CustomCalendar.Sunday"
-            android:label="@string/activity_custom_calendar" />
+            android:label="@string/activity_custom_calendar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
         <!-- Activity Main - Login -->
         <activity
             android:name=".Login"
-            android:label="@string/activity_login">
+            android:label="@string/activity_login"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
 
                 <!-- used to set launcher activity -->
@@ -65,8 +77,10 @@
         </activity>
 
 
-        <activity android:name=".RegisterSessionExamModify" />
-        <activity android:name=".RegisterSessionExamSelection"/>
+        <activity android:name=".RegisterSessionExamModify"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".RegisterSessionExamSelection"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
 
     </application>
 

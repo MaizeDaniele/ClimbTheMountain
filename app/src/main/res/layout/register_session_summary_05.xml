@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ScrollView
@@ -38,10 +38,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_space2"
                 android:layout_toEndOf="@+id/tvSessionSum_name"
-                android:gravity="center_vertical"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textSize="18sp" />
+                android:padding="13dp"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                />
 
             <ImageButton
                 android:id="@+id/btSessionSum_editUser"
@@ -51,8 +51,8 @@
                 android:layout_below="@+id/tv_space2"
                 android:layout_marginEnd="4dp"
 
-                android:layout_marginTop="8dp"
-                android:padding="16dp"
+
+                android:layout_margin="16dp"
                 android:background="#fafafa"
                 android:src="@drawable/vector_drawable_ic_create_black___px"
                 android:text="@string/bt_mod"
@@ -78,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvSessionSum_name"
                 android:layout_toEndOf="@+id/tvSessionSum_surname"
-                android:padding="10dp" />
+                android:padding="10dp"
+                />
 
             <TextView
                 android:textStyle="bold"
@@ -100,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvSessionSum_surname"
                 android:layout_toEndOf="@+id/tvSessionSum_surname"
-                android:padding="10dp" />
+                android:padding="10dp"
+                />
 
             <TextView
                 android:textStyle="bold"
@@ -122,7 +124,8 @@
                 android:layout_below="@+id/tvSessionSum_username"
                 android:layout_marginTop="15dp"
                 android:layout_toEndOf="@+id/tvSessionSum_sessionStart"
-                android:padding="10dp" />
+                android:padding="10dp"
+                />
 
             <ImageButton
                 android:id="@+id/btSessionSum_editSession"
@@ -131,8 +134,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/tvSessionSum_username"
                 android:layout_marginEnd="4dp"
-                android:layout_marginTop="15dp"
-                android:padding="16dp"
+
+                android:layout_margin="16dp"
                 android:background="#fafafa"
                 android:src="@drawable/vector_drawable_ic_create_black___px"
                 android:text="@string/bt_mod"
@@ -157,7 +160,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvSessionSum_sessionStartShow"
                 android:layout_toEndOf="@+id/tvSessionSum_hours"
-                android:padding="10dp" />
+                android:padding="10dp"
+                />
 
             <TextView
                 android:textStyle="bold"
@@ -177,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/btSessionSum_editSession"
                 android:layout_alignTop="@+id/tvSessionSum_examsList"
-                android:padding="16dp"
+                android:layout_marginTop="5dp"
                 android:background="#fafafa"
                 android:src="@drawable/vector_drawable_ic_create_black___px"
                 android:text="@string/bt_mod"
