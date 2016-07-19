@@ -76,14 +76,10 @@ public class ExamAdapter1 extends BaseAdapter {
         txt.setText(String.format("%d", esame.getCfu()));
 
         txt = (TextView) v.findViewById(R.id.dataEsame_TextView);
-        txt.setText(String.format("%d / %d / %d", esame.getGiorno(), esame.getMese(), esame.getAnno()));
+        txt.setText(String.format("%d / %d / %d", esame.getGiorno(), esame.getMese() + 1, esame.getAnno()));
 
         txt = (TextView) v.findViewById(R.id.coloreEsame_TextView);
         txt.setBackgroundColor(Color.parseColor(esame.getColore()));
-
-
-        //Imposto l'evento OnClick del bottone
-        //Avvierà l'activity RegisterSessionExamModify in cui sarà possibile anche rimuovere l'esame oltre a modificarlo
 
         ImageButton bottone = (ImageButton) v.findViewById(R.id.modifica_Button);
         bottone.setVisibility(View.GONE);

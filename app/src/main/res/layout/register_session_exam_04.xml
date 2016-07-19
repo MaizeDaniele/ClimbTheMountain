@@ -29,7 +29,7 @@
                 android:id="@+id/tvSessionExam_examName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:text="@string/exams_name"
                 android:textSize="16sp" />
 
@@ -37,15 +37,15 @@
                 android:id="@+id/etSessionExam_examName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                android:padding="8dp"
+                />
 
 
             <TextView
                 android:id="@+id/tvSessionExam_cfu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:text="@string/cfu"
                 android:textSize="16sp" />
 
@@ -53,8 +53,8 @@
                 android:id="@+id/etSessionExam_cfu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                android:padding="8dp"
+                />
 
             <TextView
                 android:id="@+id/tvSessionExam_deadline"
@@ -80,14 +80,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="5dp">
 
 
                 <TextView
                     android:id="@+id/tvSessionExam_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     android:text="@string/exam_color"
                     android:textSize="16sp" />
 
@@ -97,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_below="@+id/tvSessionExam_color"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     android:textAlignment="center"
                     android:text="@string/text_error_color"
                     android:textSize="16sp" />
@@ -117,7 +117,7 @@
                 android:id="@+id/btSessionExam_colorPck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="8dp"
                 android:text="@string/bt_pck_color"/>
 
 

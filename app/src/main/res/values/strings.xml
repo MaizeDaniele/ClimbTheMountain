@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">ClimbTheMountain</string>
-    <string name="username">Nome Utente</string>
+    <string name="username">
+
+        Nome Utente
+
+    </string>
     <string name="password_low">password</string>
     <string name="log_button">LOGIN</string>
-    <string name="new_user">Nuovo Utente</string>
+    <string name="new_user">
+        <u>
+        Registrati
+        </u>
+    </string>
     <string name="name">Nome</string>
     <string name="surname">Cognome</string>
     <string name="password_Up">Password</string>
@@ -45,10 +53,10 @@
     <string name="activity_custom_calendar">Ore Selezionate</string>
 
     // hints string
-    <string name="hint_error_name">Perfavore, inserisci il tuo nome qui!</string>
-    <string name="hint_error_surname">Perfavore, inserisci il tuo cognome qui!</string>
-    <string name="hint_error_username">Perfavore, inserisci il tuo cognome qui!</string>
-    <string name="hint_error_password">Perfavore inserisci una password!</string>
+    <string name="hint_error_name">Inserisci il tuo nome qui!</string>
+    <string name="hint_error_surname">Inserisci il tuo cognome qui!</string>
+    <string name="hint_error_username">Inserisci il tuo cognome qui!</string>
+    <string name="hint_error_password">Inserisci una password!</string>
     <string name="hint_error_password_rep">Le password devono corrispondere!</string>
     <string name="hint_error_password_rep_match">Ripeti la tua password qui!</string>
 
@@ -64,11 +72,11 @@
     <string name="hint_general_exam_name">Aggiungi un nome per il tuo esame</string>
     <string name="hint_general_exam_cfu">Aggiungi i CFU correlati</string>
 
-    <string name="hint_error_examCfu_noChar">Perfavore, inserisci un numero valido!</string>
-    <string name="hint_error_examName_noName">Perfavore, inserisci un nome per l\'esame!!</string>
-    <string name="hint_error_examCfu_noCfu">Perfavore, inserisci un numero di CFU!</string>
+    <string name="hint_error_examCfu_noChar">Inserisci un numero valido!</string>
+    <string name="hint_error_examName_noName">Inserisci un nome per l\'esame!!</string>
+    <string name="hint_error_examCfu_noCfu">Inserisci un numero di CFU!</string>
 
-    <string name="text_error_color">Perfavore, scegli un colore per l\'esame!</string>
+    <string name="text_error_color">Scegli un colore per l\'esame!</string>
 
 
     // customCalendar
@@ -108,13 +116,13 @@
     <string name="twentyThreeOClock">23:00</string>
 
 
-    <string name="tv_monday">Monday</string>
-    <string name="tv_tuesday">Tuesday</string>
-    <string name="tv_wednesday">Wednesday</string>
-    <string name="tv_thursday">Thursday</string>
-    <string name="tv_friday">Friday</string>
-    <string name="tv_saturday">Saturday</string>
-    <string name="tv_sunday">Sunday</string>
+    <string name="tv_monday">Lunedì</string>
+    <string name="tv_tuesday">Martedì</string>
+    <string name="tv_wednesday">Mercoledì</string>
+    <string name="tv_thursday">Giovedì</string>
+    <string name="tv_friday">Venerdì</string>
+    <string name="tv_saturday">Sabato</string>
+    <string name="tv_sunday">Domenica</string>
 
     <string name="labelColor_ExamListView">Colore :</string>
     <string name="mod_button_lsit_exams">Lista Esami</string>

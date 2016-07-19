@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <ImageView
         android:id="@+id/ivLogin_Image"
@@ -50,13 +59,16 @@
         android:text="@string/log_button" />
 
     <TextView
+        android:layout_marginTop="16dp"
         android:id="@+id/tvLogin_newUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:text="@string/new_user"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
+</LinearLayout>
 
+</ScrollView>
 
 </LinearLayout>

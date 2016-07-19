@@ -173,14 +173,17 @@ public class RegisterSessionData extends AppCompatActivity{
                 } else if(controlHoursMoreThanOne() && !controlExamsMoreThanOne()){
 
                     setMessageExam();
+                    btAddExams.requestFocus();
 
                 } else if(controlExamsMoreThanOne() && !controlHoursMoreThanOne()) {
 
                     setMessageHours();
+                    btAddStudyHours.requestFocus();
                 }else{
 
                     setMessageExam();
                     setMessageHours();
+                    btAddStudyHours.requestFocus();
                 }
                 break;
 
@@ -233,6 +236,7 @@ public class RegisterSessionData extends AppCompatActivity{
         tvErrorExams.setVisibility(View.VISIBLE);
         btAddExams.setBackgroundColor(getResources().getColor(R.color.orange_300));
         btAddExams.setTextColor(getResources().getColor(R.color.white));
+
     }
 
     private void clearMessageExam(){

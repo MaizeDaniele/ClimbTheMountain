@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                />
 
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                />
 
             <TextView
                 android:id="@+id/tvSessionExam_deadline_Mod"
@@ -120,17 +120,7 @@
                 to delete the subject. Be aware! this should be allowed only once the
                 data has been inserted ;) -->
 
-            <Button
-                android:id="@+id/btCancel"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="50dp"
-                android:padding="10dp"
-                android:paddingTop="15dp"
-                android:text="@string/bt_cancel" />
+
 
             <Button
                 android:id="@+id/btDelete"
@@ -143,6 +133,18 @@
                 android:paddingTop="15dp"
                 android:text="@string/delete"
                 />
+
+            <Button
+                android:id="@+id/btCancel"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+
+                android:padding="10dp"
+                android:paddingTop="15dp"
+                android:text="@string/bt_cancel" />
 
         </LinearLayout>
 

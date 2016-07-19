@@ -2,18 +2,23 @@ package com.example.android.climbthemountain;
 
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +27,9 @@ import com.example.android.climbthemountain.user_data.UserData;
 import java.util.ArrayList;
 
 public class RegisterAccountData extends AppCompatActivity {
+
+    int flagButton01 = 0;
+    int flagButton02 = 0;
 
     // elements
     EditText etUsername;
@@ -35,6 +43,9 @@ public class RegisterAccountData extends AppCompatActivity {
     TextView tvPasswordRepeat;
     TextView tvName;
     TextView tvSurname;
+
+    ImageButton btShowPass01;
+    ImageButton btShowPass02;
 
     ImageView imWarn1;
     ImageView imWarn2;
@@ -84,6 +95,42 @@ public class RegisterAccountData extends AppCompatActivity {
         imWarn1 = (ImageView) findViewById(R.id.image_warningPass01);
         imWarn2 = (ImageView) findViewById(R.id.image_warningPass02);
 
+        btShowPass01 = (ImageButton) findViewById(R.id.showPass01);
+        btShowPass02 = (ImageButton) findViewById(R.id.showPass02);
+
+
+
+        btShowPass01.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(flagButton01 == 0) {
+                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    flagButton01 = 1;
+                }else{
+                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT |
+                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    flagButton01 = 0;
+                }
+            }
+        });
+
+        btShowPass02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(flagButton02 == 0) {
+                    etPasswordRepeat.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    flagButton02 = 1;
+                }else{
+                    etPasswordRepeat.setInputType(InputType.TYPE_CLASS_TEXT |
+                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    flagButton02 = 0;
+                }
+            }
+        });
+
+
         listEt.add(etName);
         listEt.add(etSurname);
         listEt.add(etUsername);
@@ -96,9 +143,8 @@ public class RegisterAccountData extends AppCompatActivity {
         listTv.add(tvPassword); // get(3)
         listTv.add(tvPasswordRepeat); // get(4)
 
-        // toolbar registration
-        //tbRegistration = (Toolbar) findViewById(R.id.tbReg_toolbar);
-        //setSupportActionBar(tbRegistration);
+
+
 
         hintSetOnCreate();
 
@@ -187,6 +233,13 @@ public class RegisterAccountData extends AppCompatActivity {
 
 
                 if(anyFieldEmpty()) {
+
+                    View v = getCurrentFocus();
+                    if (v != null) {
+                        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    }
+
                     checkUserDetailMessage();
                     passwordUserMessage();
                 }
@@ -194,6 +247,13 @@ public class RegisterAccountData extends AppCompatActivity {
 
                     if(passwordMatching() && !anyFieldEmpty()) saveRegisterData(isSummary);
                     else{
+
+                        View v = getCurrentFocus();
+                        if (v != null) {
+                            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                        }
+
                         checkUserDetailMessage();
                         passwordUserMessage();
 
@@ -292,6 +352,7 @@ public class RegisterAccountData extends AppCompatActivity {
     }
 
     private void passwordUserMessage() {
+
 
 
         if(passwordMatching() && !passwordBothEmpty() && !flag ){

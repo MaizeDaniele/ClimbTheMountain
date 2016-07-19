@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="13dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                />
 
             <TextView
                 android:id="@+id/tvReg_surname"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="13dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                />
 
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="13dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,14 +92,32 @@
 
             </LinearLayout>
 
+            <RelativeLayout
 
-            <EditText
-                android:id="@+id/etReg_pass"
-                android:inputType="textPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="13dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/showPass01"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/vector_drawable_ic_visibility_black___px"/>
+
+                <EditText
+                    android:id="@+id/etReg_pass"
+                    android:inputType="textPassword"
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content"
+                    android:padding="13dp"
+                    />
+
+
+
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -124,16 +142,28 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/showPass02"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/vector_drawable_ic_visibility_black___px"/>
 
             <EditText
                 android:id="@+id/etReg_passRep"
                 android:inputType="textPassword"
-                android:layout_width="match_parent"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:padding="13dp"
-                android:windowSoftInputMode="stateHidden|adjustResize"/>
+                />
 
-
+            </RelativeLayout>
 
         </LinearLayout>
     </ScrollView>
