@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="16sp"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:paddingLeft="16dp"
+        android:layout_height="56dp"
+        android:layout_width="match_parent"
+        android:id="@+id/tutorialDialogFragmentTitle"
+        android:text="@string/tutorial_dialogFragment_title_textView"
+        android:background="@color/orange_500"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/textView_dialogTutorial"
+        android:text="@string/tutorial_dialogFragment_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"/>
+
+</LinearLayout>

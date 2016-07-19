@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.climbthemountain.CustomCalendar.BaseWeekDay;
@@ -29,6 +30,8 @@ public class RegisterSessionData extends AppCompatActivity{
 
     TextView tvErrorHours;
     TextView tvErrorExams;
+
+    ImageView confirmedHours;
 
     //Eventuale intent proveniente da activity
     Intent intent;
@@ -78,6 +81,14 @@ public class RegisterSessionData extends AppCompatActivity{
         tvErrorExams = (TextView) findViewById(R.id.tvSession_ErrorExams);
         tvErrorHours = (TextView) findViewById(R.id.tvSession_ErrorHours);
 
+        confirmedHours = (ImageView) findViewById(R.id.confrimedHourSelection);
+
+        if(controlHoursMoreThanOne()){
+            confirmedHours.setVisibility(View.VISIBLE);
+        }else{
+            confirmedHours.setVisibility(View.GONE);
+        }
+
         //Inizialzzo i componenti con i dati dell'utente
 
         fillUserData();
@@ -113,6 +124,7 @@ public class RegisterSessionData extends AppCompatActivity{
                     Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionExam.class);
 
                     //Carico l'utente nell'intent
+
                     nextIntent.putExtra(Login.USER_OBJ, userData);
 
                     startActivity(nextIntent);

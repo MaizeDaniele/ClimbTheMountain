@@ -21,6 +21,8 @@ public class UserData implements Parcelable {
     private int session_month;
     private int session_year;
 
+    private String needTutorial;
+
 
 
     // keep both into an user object
@@ -28,7 +30,7 @@ public class UserData implements Parcelable {
     public WeeklyDays userSelectedHours = new WeeklyDays();
 
     public UserData(){
-
+        this.needTutorial = "si";
     }
 
     public UserData(String username, String password, String name, String surname) {
@@ -36,11 +38,13 @@ public class UserData implements Parcelable {
         this.password = password;
         this.name = name;
         this.surname = surname;
+        this.needTutorial = "si";
     }
 
     public UserData(String username, String password) {
         this.username = username;
         this.password = password;
+        this.needTutorial = "si";
     }
 
     protected UserData(Parcel in) {
@@ -53,6 +57,7 @@ public class UserData implements Parcelable {
         session_day = in.readInt();
         session_month = in.readInt();
         session_year = in.readInt();
+        needTutorial = in.readString();
     }
 
     public static final Creator<UserData> CREATOR = new Creator<UserData>() {
@@ -123,6 +128,14 @@ public class UserData implements Parcelable {
         this.session_year = session_year;
     }
 
+    public void setNeedTutorial(String needTutorial){
+        this.needTutorial = needTutorial;
+    }
+
+    public String getNeedTutorial(){
+        return this.needTutorial;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -141,5 +154,6 @@ public class UserData implements Parcelable {
         dest.writeInt(session_day);
         dest.writeInt(session_month);
         dest.writeInt(session_year);
+        dest.writeString(needTutorial);
     }
 }

@@ -281,6 +281,7 @@ public class RegisterAccountData extends AppCompatActivity {
         accountData.setSurname(listEt.get(1).getText().toString());
         accountData.setUsername(listEt.get(2).getText().toString());
         accountData.setPassword(listEt.get(3).getText().toString());
+        accountData.setNeedTutorial("si");
 
         Intent intent;
 

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.DailyHours;
 import com.example.android.climbthemountain.CustomCalendar.HoursSelectedPackage.WeeklyDays;
+import com.example.android.climbthemountain.CustomDialogFragment.TutorialDialogFragment;
 import com.example.android.climbthemountain.Login;
 import com.example.android.climbthemountain.R;
 import com.example.android.climbthemountain.RegisterSessionData;
@@ -77,15 +78,31 @@ public abstract class BaseWeekDay extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+
+
+
+
         if(intent != null){
             if (intent.getParcelableExtra(Login.USER_OBJ) != null) {
 
                 // possible javaNullException
                 accountData = intent.getParcelableExtra(Login.USER_OBJ);
                 back_accountData = accountData;
-            }
-        }
+                if(accountData.getNeedTutorial().equals("si")) {
+                    TutorialDialogFragment dialogFragment = TutorialDialogFragment.newInstance();
+                    dialogFragment.show(getFragmentManager(), "tutorial");
+                }
+                accountData.setNeedTutorial("no");
 
+            }
+
+
+        }
+        if(accountData.getNeedTutorial().equals("si")) {
+            TutorialDialogFragment dialogFragment = TutorialDialogFragment.newInstance();
+            dialogFragment.show(getFragmentManager(), "tutorial");
+            accountData.setNeedTutorial("no");
+        }
 
         tvEightOClock = (TextView) findViewById(R.id.eightOClock);
         tvNineOCLock = (TextView) findViewById(R.id.nineOClock);
@@ -311,6 +328,7 @@ public abstract class BaseWeekDay extends AppCompatActivity {
         // we have to dispatch the next activity
         Intent nextIntent = new Intent(getApplicationContext(), RegisterSessionData.class);
         nextIntent.putExtra(Login.USER_OBJ, accountData);
+        
 
         startActivity(nextIntent);
 

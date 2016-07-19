@@ -65,7 +65,7 @@
         <!-- Activity Main - Login -->
         <activity
             android:name=".Login"
-            android:label="@string/activity_login"
+            android:label="Climb The Mountain"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
 
@@ -78,9 +78,11 @@
 
 
         <activity android:name=".RegisterSessionExamModify"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:label="Modifica Esame"/>
         <activity android:name=".RegisterSessionExamSelection"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:label="Lista Esami"/>
 
     </application>
 

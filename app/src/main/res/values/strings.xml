@@ -127,4 +127,12 @@
     <string name="labelColor_ExamListView">Colore :</string>
     <string name="mod_button_lsit_exams">Lista Esami</string>
     <string name="mod_button_add_exam">Aggiungi Esame</string>
+
+
+    <string name="tutorial_dialogFragment_title_textView">Tutorial:</string>
+    <string name="tutorial_dialogFragment_textView">
+        Nella seguente sezione devi selezionare le singole ore che hai a disposizione per studiare.
+        Usa le frecce per cambiare giorno della settimana.
+        Come hai terminato premi il tasto conferma e continua con la registrazione dell\'account.
+    </string>
 </resources>
